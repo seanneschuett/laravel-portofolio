@@ -1,2 +1,5 @@
-[providers.php]
-root = "public"
+[phases.setup]
+providers = ['...', 'php']
+
+[start]
+cmd = "node /assets/index.js || (php-fpm -D && nginx -g 'daemon off;')"
