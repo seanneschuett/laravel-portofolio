@@ -77,8 +77,11 @@
         <div class="flex justify-center items-center">
             <div class="relative">
 
-                <!-- Ambient Radial Glow -->
-                <div class="absolute inset-0 bg-gradient-to-tr from-emerald-400 to-teal-300 rounded-full blur-3xl opacity-30 animate-pulse"></div>
+                <!-- Soft glow that follows the square photo card. -->
+                <div class="absolute inset-3 bg-gradient-to-tr from-emerald-400 to-teal-300 rounded-[2rem] blur-3xl opacity-30 animate-pulse"></div>
+
+                <div class="absolute -top-3 -right-3 w-20 h-20 border-t-2 border-r-2 border-emerald-300 rounded-tr-[2rem]"></div>
+                <div class="absolute -bottom-3 -left-3 w-20 h-20 border-b-2 border-l-2 border-teal-300 rounded-bl-[2rem]"></div>
 
                 <!-- Decorative Badge Overlay -->
                 {{-- <div class="absolute -bottom-4 -left-4 bg-white/90 backdrop-blur-md border border-emerald-100 p-4 rounded-2xl shadow-xl z-20 hidden sm:flex items-center gap-3">
@@ -92,10 +95,10 @@
                 </div> --}}
 
                 <!-- Profile Image -->
-                <div class="relative z-10 p-2 rounded-full bg-white shadow-2xl ring-4 ring-emerald-500/20">
+                <div class="relative z-10 p-2 bg-white shadow-2xl ring-4 ring-emerald-500/20 rounded-[1.75rem]">
                     <img src="{{ asset('images/paspoto.jpeg') }}"
-                         alt="Sara Nazilla"
-                         class="w-[280px] h-[280px] sm:w-[340px] sm:h-[340px] lg:w-[380px] lg:h-[380px] object-cover rounded-full transition duration-500 hover:scale-[1.02]">
+                          alt="Sara Nazilla"
+                          class="w-[280px] h-[340px] sm:w-[340px] sm:h-[400px] lg:w-[380px] lg:h-[300px] object-cover object-top rounded-[1.35rem] transition duration-500 hover:scale-[1.02]">
                 </div>
 
             </div>
