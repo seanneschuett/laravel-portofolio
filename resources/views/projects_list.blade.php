@@ -5,33 +5,23 @@
 @section('content')
 
 <!-- Projects Section -->
-<section class="py-28 px-6 relative overflow-hidden">
-
-    <!-- Background Blur -->
-    <div class="absolute top-0 left-0 w-80 h-80 bg-cyan-500/10 rounded-full blur-3xl"></div>
-    <div class="absolute bottom-0 right-0 w-80 h-80 bg-purple-500/10 rounded-full blur-3xl"></div>
+<section class="py-12 px-4 sm:px-6 relative">
 
     <div class="max-w-7xl mx-auto relative z-10">
 
         <!-- Title -->
-        <div class="text-center mb-16">
+        <div class="text-center mb-16 space-y-4">
+            <span class="px-4 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-semibold uppercase tracking-wider inline-block">
+                Semua Karya
+            </span>
 
-            <p class="text-cyan-400 uppercase tracking-[4px] text-sm font-medium mb-4">
-                My Work
-            </p>
-
-            <h2 class="text-4xl md:text-5xl font-bold mb-6">
-                Featured
-                <span class="bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent">
-                    Projects
-                </span>
+            <h2 class="text-4xl sm:text-5xl font-extrabold text-slate-900 tracking-tight">
+                Daftar <span class="gradient-emerald-text">Project</span>
             </h2>
 
-            <p class="text-gray-400 max-w-2xl mx-auto">
-                Some of the projects I have worked on with modern design,
-                responsive layouts, and clean development structure.
+            <p class="text-slate-600 max-w-2xl mx-auto text-base">
+                Kumpulan project yang telah saya kembangkan dengan struktur rapi, responsif, dan tampilan modern.
             </p>
-
         </div>
 
         <!-- Project Grid -->
@@ -39,71 +29,63 @@
 
             @foreach($projects as $project)
 
-            <div class="group bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl overflow-hidden hover:border-cyan-400/40 transition duration-500">
+            <div class="group bg-white border border-slate-200/80 rounded-3xl overflow-hidden hover:border-emerald-300 hover:shadow-xl hover:shadow-emerald-600/10 transition duration-300 flex flex-col justify-between">
 
-                <!-- Image -->
-                <div class="overflow-hidden">
+                <div>
+                    <!-- Image -->
+                    <div class="overflow-hidden relative h-60 bg-slate-100">
+                        <img src="{{ $project->image }}"
+                             alt="{{ $project->title }}"
+                             class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <span class="absolute top-4 right-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-xs font-semibold text-emerald-700 border border-emerald-100 shadow-sm">
+                            Laravel Project
+                        </span>
+                    </div>
 
-                    <img src="{{ $project->image }}"
-                         alt="{{ $project->title }}"
-                         class="w-full h-60 object-cover group-hover:scale-110 transition duration-700">
+                    <!-- Content -->
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-slate-900 group-hover:text-emerald-600 transition mb-3">
+                            {{ $project->title }}
+                        </h3>
 
-                </div>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                            {{ $project->description }}
+                        </p>
 
-                <!-- Content -->
-                <div class="p-6">
-
-                    <!-- Category -->
-                    <span class="text-cyan-400 text-sm font-medium">
-                        Laravel Project
-                    </span>
-
-                    <!-- Title -->
-                    <h3 class="text-2xl font-bold mt-3 mb-4">
-                        {{ $project->title }}
-                    </h3>
-
-                    <!-- Desc -->
-                    <p class="text-gray-400 leading-relaxed mb-6">
-                        {{ $project->description }}
-                    </p>
-
-                    <!-- Tech -->
-                    <div class="flex flex-wrap gap-3 mb-6">
-
+                        <!-- Tech Tags -->
                         @php
                         $tagColors = [
-                            'HTML' => 'bg-orange-500/20 text-orange-400',
-                            'CSS' => 'bg-blue-500/20 text-blue-400',
-                            'JavaScript' => 'bg-yellow-500/20 text-yellow-400',
-                            'PHP' => 'bg-purple-500/20 text-purple-400',
-                            'MySQL' => 'bg-cyan-500/20 text-cyan-400',
-                            'Laravel' => 'bg-red-500/20 text-red-400',
-                            'UI/UX Desaign' => 'bg-emerald-500/20 text-emerald-400'
+                            'HTML' => 'bg-orange-50 text-orange-700 border-orange-200',
+                            'CSS' => 'bg-sky-50 text-sky-700 border-sky-200',
+                            'JavaScript' => 'bg-amber-50 text-amber-700 border-amber-200',
+                            'PHP' => 'bg-indigo-50 text-indigo-700 border-indigo-200',
+                            'MySQL' => 'bg-cyan-50 text-cyan-700 border-cyan-200',
+                            'Laravel' => 'bg-rose-50 text-rose-700 border-rose-200',
+                            'UI/UX Desaign' => 'bg-emerald-50 text-emerald-700 border-emerald-200'
                         ];
                         $tags = is_array($project->tags) ? $project->tags : (is_string($project->tags) ? json_decode($project->tags, true) : []);
                         @endphp
 
                         @if(!empty($tags))
-                        @foreach($tags as $tag)
-                        <span class="{{ $tagColors[$tag] ?? 'bg-gray-500/20 text-gray-400' }} text-sm px-3 py-1 rounded-full">
-                            {{ $tag }}
-                        </span>
-                        @endforeach
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            @foreach($tags as $tag)
+                            <span class="{{ $tagColors[$tag] ?? 'bg-emerald-50 text-emerald-700 border-emerald-200' }} text-xs font-medium px-3 py-1 rounded-lg border">
+                                {{ $tag }}
+                            </span>
+                            @endforeach
+                        </div>
                         @endif
-
                     </div>
+                </div>
 
-                    <!-- Button -->
+                <!-- Button Link -->
+                <div class="px-6 pb-6 pt-0">
                     <a href="{{ $project->link }}"
                        target="_blank"
-                       class="inline-flex items-center gap-2 text-cyan-400 hover:text-cyan-300 transition font-medium">
-
-                        View Project
+                       class="inline-flex items-center gap-2 text-sm font-semibold text-emerald-600 hover:text-emerald-700 transition">
+                        <span>Lihat Project Live</span>
                         <span>→</span>
-
                     </a>
-
                 </div>
 
             </div>

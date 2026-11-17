@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin - Projects</title>
+    <title>Admin - Projects | SaraDev</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        * { font-family: 'Inter', sans-serif; }
+        * { font-family: 'Plus Jakarta Sans', sans-serif; }
         .sidebar { transition: transform 0.3s ease; }
         @media (max-width: 1023px) {
             .sidebar { transform: translateX(-100%); position: fixed; z-index: 50; }
@@ -17,128 +17,141 @@
         .overlay.active { opacity: 1; visibility: visible; }
     </style>
 </head>
-<body class="bg-slate-950 text-white min-h-screen flex">
+<body class="bg-slate-50 text-slate-800 min-h-screen flex">
 
     <!-- Mobile Header -->
-    <header class="lg:hidden fixed top-0 left-0 right-0 z-40 bg-slate-900/95 backdrop-blur border-b border-white/10 px-4 py-3 flex items-center justify-between">
-        <button onclick="toggleSidebar()" class="p-2 hover:bg-white/10 rounded-lg transition">
+    <header class="lg:hidden fixed top-0 left-0 right-0 z-40 bg-white/95 backdrop-blur border-b border-slate-200 px-4 py-3 flex items-center justify-between shadow-sm">
+        <button onclick="toggleSidebar()" class="p-2 hover:bg-slate-100 rounded-xl text-slate-700 transition">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
             </svg>
         </button>
-        <span class="font-semibold text-lg">Projects</span>
+        <span class="font-bold text-slate-900">Projects Portfolio</span>
         <div class="w-10"></div>
     </header>
 
     <!-- Overlay -->
-    <div id="overlay" class="overlay fixed inset-0 bg-black/60 z-40 lg:hidden" onclick="toggleSidebar()"></div>
+    <div id="overlay" class="overlay fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-40 lg:hidden" onclick="toggleSidebar()"></div>
 
     <!-- Sidebar -->
-    <aside id="sidebar" class="sidebar fixed lg:static top-0 left-0 h-screen w-64 bg-slate-900 border-r border-white/10 z-50 flex flex-col shrink-0">
-        <div class="p-6 border-b border-white/10">
-            <h1 class="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
-                Admin
-            </h1>
+    <aside id="sidebar" class="sidebar fixed lg:static top-0 left-0 h-screen w-64 bg-white border-r border-slate-200/80 z-50 flex flex-col shrink-0 shadow-sm">
+        
+        <!-- Brand Header -->
+        <div class="p-6 border-b border-slate-100 flex items-center gap-3">
+            <span class="w-9 h-9 rounded-xl bg-gradient-to-tr from-emerald-600 to-teal-400 flex items-center justify-center text-white font-extrabold text-lg shadow-md shadow-emerald-600/30">S</span>
+            <div>
+                <h1 class="text-xl font-bold tracking-tight text-slate-900">
+                    <span class="text-emerald-600">Sara</span>Dev
+                </h1>
+                <span class="text-[11px] font-semibold text-slate-400 uppercase tracking-wider">Admin Panel</span>
+            </div>
         </div>
-        <nav class="flex-1 p-4 space-y-2">
-            <a href="/admin/projects" class="flex items-center gap-3 px-4 py-3 bg-cyan-500/20 text-cyan-400 rounded-xl">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-                </svg>
-                <span class="font-medium">Projects</span>
+
+        <!-- Nav -->
+        <nav class="flex-1 p-4 space-y-1.5">
+            <a href="/admin/projects" class="flex items-center gap-3 px-4 py-3 bg-emerald-50 text-emerald-700 font-semibold rounded-xl border-l-4 border-emerald-600 text-sm">
+                <svg class="w-5 h-5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                <span>Kelola Projects</span>
             </a>
-            <a href="/admin/messages" class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:bg-white/5 hover:text-white rounded-xl transition">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                </svg>
-                <span class="font-medium">Messages</span>
+
+            <a href="/admin/messages" class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:bg-emerald-50/60 hover:text-emerald-700 rounded-xl transition font-medium text-sm">
+                <svg class="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                <span>Pesan Masuk</span>
             </a>
-            <a href="/" class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:bg-white/5 hover:text-white rounded-xl transition">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
-                </svg>
-                <span class="font-medium">Lihat Website</span>
+
+            <a href="/" target="_blank" class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:bg-slate-50 hover:text-slate-900 rounded-xl transition font-medium text-sm">
+                <svg class="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                <span>Lihat Website Live</span>
             </a>
         </nav>
-        <div class="p-4 border-t border-white/10">
+
+        <!-- Logout -->
+        <div class="p-4 border-t border-slate-100">
             <form method="POST" action="/logout">
                 @csrf
-                <button type="submit" class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:text-red-400 w-full rounded-xl hover:bg-red-500/10 transition">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/>
-                    </svg>
-                    <span class="font-medium">Logout</span>
+                <button type="submit" class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:text-rose-600 hover:bg-rose-50 w-full rounded-xl transition font-medium text-sm">
+                    <svg class="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/></svg>
+                    <span>Keluar</span>
                 </button>
             </form>
         </div>
     </aside>
 
     <!-- Main Content -->
-    <main class="flex-1 min-h-screen pt-16 lg:pt-0">
-        <div class="p-4 md:p-6 lg:p-8 h-full">
+    <main class="flex-1 min-h-screen pt-16 lg:pt-0 overflow-y-auto">
+        <div class="p-6 lg:p-10 max-w-7xl mx-auto">
             
-            <!-- Header -->
-            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6 lg:mb-8">
+            <!-- Header Bar -->
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8">
                 <div>
-                    <h1 class="text-2xl md:text-3xl font-bold">My Projects</h1>
-                    <p class="text-slate-400 mt-1 text-sm md:text-base">Kelola project portfolio kamu</p>
+                    <h1 class="text-2xl md:text-3xl font-extrabold text-slate-900 tracking-tight">Project Portfolio</h1>
+                    <p class="text-slate-500 text-sm mt-1">Kelola seluruh daftar karya dan project Anda</p>
                 </div>
+
                 <a href="/admin/projects/create"
-                   class="bg-gradient-to-r from-cyan-500 to-purple-500 hover:opacity-90 px-5 py-2.5 rounded-xl font-medium transition flex items-center gap-2">
+                   class="bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white px-5 py-2.5 rounded-xl font-bold text-sm transition flex items-center gap-2 shadow-md shadow-emerald-600/20">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
                     </svg>
-                    <span>Tambah</span>
+                    <span>Tambah Project Baru</span>
                 </a>
             </div>
 
             <!-- Projects Grid -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 @foreach($projects as $project)
-                <div class="bg-slate-900/50 border border-white/5 rounded-2xl overflow-hidden hover:border-white/20 transition group">
-                    <div class="relative aspect-video overflow-hidden">
-                        <img src="{{ $project->image }}"
-                              class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent"></div>
-                    </div>
-                    <div class="p-4 md:p-5">
-                        <h2 class="text-lg font-semibold mb-2 line-clamp-1">{{ $project->title }}</h2>
-                        <p class="text-slate-400 text-sm mb-4 line-clamp-2">{{ $project->description }}</p>
-                        
-                        @php
-                        $tags = is_array($project->tags) ? $project->tags : (is_string($project->tags) ? json_decode($project->tags, true) : []);
-                        $tagColors = [
-                            'HTML' => 'bg-orange-500/20 text-orange-400',
-                            'CSS' => 'bg-blue-500/20 text-blue-400',
-                            'JavaScript' => 'bg-yellow-500/20 text-yellow-400',
-                            'PHP' => 'bg-purple-500/20 text-purple-400',
-                            'MySQL' => 'bg-cyan-500/20 text-cyan-400',
-                            'Laravel' => 'bg-red-500/20 text-red-400',
-                            'UI/UX Desaign' => 'bg-emerald-500/20 text-emerald-400'
-                        ];
-                        @endphp
-
-                        @if(!empty($tags))
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            @foreach($tags as $tag)
-                            <span class="{{ $tagColors[$tag] ?? 'bg-slate-500/20 text-slate-400' }} text-xs px-2.5 py-1 rounded-full">
-                                {{ $tag }}
-                            </span>
-                            @endforeach
+                <div class="bg-white border border-slate-200/80 rounded-2xl overflow-hidden hover:border-emerald-300 hover:shadow-lg hover:shadow-emerald-600/5 transition group flex flex-col justify-between">
+                    
+                    <div>
+                        <!-- Image Cover -->
+                        <div class="relative aspect-video overflow-hidden bg-slate-100">
+                            <img src="{{ $project->image }}"
+                                 alt="{{ $project->title }}"
+                                 class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                         </div>
-                        @endif
 
-                        <div class="flex flex-wrap gap-2">
-                            <button onclick="openEditModal({{ $project->id }}, '{{ $project->title }}', '{{ $project->description }}', '{{ $project->image }}', '{{ $project->link }}', '{{ json_encode($project->tags ?? []) }}')"
-                                class="bg-yellow-500/20 hover:bg-yellow-500/30 text-yellow-400 px-3 py-2 rounded-lg text-sm font-medium transition">
-                                Edit
-                            </button>
-                            <button onclick="openDeleteModal({{ $project->id }}, '{{ $project->title }}')"
-                                class="bg-red-500/20 hover:bg-red-500/30 text-red-400 px-3 py-2 rounded-lg text-sm font-medium transition">
-                                Hapus
-                            </button>
+                        <!-- Details -->
+                        <div class="p-5">
+                            <h2 class="text-lg font-bold text-slate-900 mb-2 line-clamp-1 group-hover:text-emerald-600 transition">{{ $project->title }}</h2>
+                            <p class="text-slate-600 text-sm mb-4 line-clamp-2 leading-relaxed">{{ $project->description }}</p>
+                            
+                            @php
+                            $tags = is_array($project->tags) ? $project->tags : (is_string($project->tags) ? json_decode($project->tags, true) : []);
+                            $tagColors = [
+                                'HTML' => 'bg-orange-50 text-orange-700 border-orange-200',
+                                'CSS' => 'bg-sky-50 text-sky-700 border-sky-200',
+                                'JavaScript' => 'bg-amber-50 text-amber-700 border-amber-200',
+                                'PHP' => 'bg-indigo-50 text-indigo-700 border-indigo-200',
+                                'MySQL' => 'bg-cyan-50 text-cyan-700 border-cyan-200',
+                                'Laravel' => 'bg-rose-50 text-rose-700 border-rose-200',
+                                'UI/UX Desaign' => 'bg-emerald-50 text-emerald-700 border-emerald-200'
+                            ];
+                            @endphp
+
+                            @if(!empty($tags))
+                            <div class="flex flex-wrap gap-1.5 mb-5">
+                                @foreach($tags as $tag)
+                                <span class="{{ $tagColors[$tag] ?? 'bg-emerald-50 text-emerald-700 border-emerald-200' }} text-[11px] font-medium px-2.5 py-0.5 rounded-lg border">
+                                    {{ $tag }}
+                                </span>
+                                @endforeach
+                            </div>
+                            @endif
                         </div>
                     </div>
+
+                    <!-- Actions Footer -->
+                    <div class="px-5 pb-5 pt-0 flex items-center gap-2">
+                        <button onclick="openEditModal({{ $project->id }}, '{{ addslashes($project->title) }}', '{{ addslashes($project->description) }}', '{{ addslashes($project->image) }}', '{{ addslashes($project->link) }}', '{{ json_encode($project->tags ?? []) }}')"
+                            class="flex-1 bg-amber-50 hover:bg-amber-100 text-amber-700 border border-amber-200/80 py-2 rounded-xl text-xs font-semibold transition text-center">
+                            Edit
+                        </button>
+                        <button onclick="openDeleteModal({{ $project->id }}, '{{ addslashes($project->title) }}')"
+                            class="flex-1 bg-rose-50 hover:bg-rose-100 text-rose-700 border border-rose-200/80 py-2 rounded-xl text-xs font-semibold transition text-center">
+                            Hapus
+                        </button>
+                    </div>
+
                 </div>
                 @endforeach
             </div>
@@ -147,69 +160,69 @@
     </main>
 
     <!-- Edit Modal -->
-    <div id="editModal" class="fixed inset-0 bg-black/80 hidden items-center justify-center z-50 p-4">
-        <div class="bg-slate-900 border border-white/10 rounded-2xl w-full max-w-xl max-h-[90vh] overflow-y-auto">
-            <div class="sticky top-0 bg-slate-900 border-b border-white/10 p-4 md:p-6 flex justify-between items-center">
-                <h2 class="text-xl font-bold">Edit Project</h2>
-                <button onclick="closeEditModal()" class="text-slate-400 hover:text-white p-1">
+    <div id="editModal" class="fixed inset-0 bg-slate-900/40 backdrop-blur-sm hidden items-center justify-center z-50 p-4">
+        <div class="bg-white border border-slate-200 rounded-3xl w-full max-w-xl max-h-[90vh] overflow-y-auto shadow-2xl">
+            <div class="sticky top-0 bg-white border-b border-slate-100 p-6 flex justify-between items-center z-10">
+                <h2 class="text-xl font-bold text-slate-900">Edit Project</h2>
+                <button onclick="closeEditModal()" class="text-slate-400 hover:text-slate-700 p-1.5 rounded-xl hover:bg-slate-100 transition">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
                     </svg>
                 </button>
             </div>
-            <form id="editForm" method="POST" class="p-4 md:p-6 space-y-5">
+            <form id="editForm" method="POST" class="p-6 space-y-5">
                 @csrf
                 <input type="hidden" name="_method" value="PUT">
                 
                 <div>
-                    <label class="block text-sm text-slate-400 mb-2">Title</label>
+                    <label class="block text-sm font-semibold text-slate-700 mb-2">Judul Project</label>
                     <input type="text" id="editTitle" name="title" required
-                        class="w-full bg-slate-950 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-cyan-500 focus:outline-none transition">
+                        class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-800 focus:bg-white focus:outline-none focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10 transition text-sm">
                 </div>
 
                 <div>
-                    <label class="block text-sm text-slate-400 mb-2">Description</label>
+                    <label class="block text-sm font-semibold text-slate-700 mb-2">Deskripsi</label>
                     <textarea id="editDescription" name="description" rows="3" required
-                        class="w-full bg-slate-950 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-cyan-500 focus:outline-none transition"></textarea>
+                        class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-800 focus:bg-white focus:outline-none focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10 transition text-sm resize-none"></textarea>
                 </div>
 
                 <div>
-                    <label class="block text-sm text-slate-400 mb-2">Gambar Project</label>
-                    <div id="editDropZone" class="border-2 border-dashed border-white/20 rounded-xl p-4 text-center cursor-pointer hover:border-cyan-400 transition">
+                    <label class="block text-sm font-semibold text-slate-700 mb-2">Gambar Project</label>
+                    <div id="editDropZone" class="border-2 border-dashed border-slate-200 rounded-2xl p-4 text-center cursor-pointer hover:border-emerald-500 hover:bg-emerald-50/30 transition">
                         <input type="file" id="editImageInput" accept="image/*" class="hidden">
                         <div id="editUploadPrompt">
-                            <img id="editCurrentImage" src="" alt="Current" class="max-h-32 mx-auto rounded-lg mb-2">
-                            <p class="text-slate-500 text-sm">Klik untuk ganti gambar</p>
+                            <img id="editCurrentImage" src="" alt="Current" class="max-h-32 mx-auto rounded-xl mb-2 object-cover">
+                            <p class="text-emerald-700 font-semibold text-xs">Klik untuk ganti gambar</p>
                         </div>
                     </div>
                     <input type="hidden" id="editImage" name="image">
                 </div>
 
                 <div>
-                    <label class="block text-sm text-slate-400 mb-2">Project Link</label>
+                    <label class="block text-sm font-semibold text-slate-700 mb-2">Link Live Project</label>
                     <input type="text" id="editLink" name="link" required
-                        class="w-full bg-slate-950 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-cyan-500 focus:outline-none transition">
+                        class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-800 focus:bg-white focus:outline-none focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10 transition text-sm">
                 </div>
 
                 <div>
-                    <label class="block text-sm text-slate-400 mb-2">Tags</label>
+                    <label class="block text-sm font-semibold text-slate-700 mb-2">Tags / Teknologi</label>
                     <div class="flex flex-wrap gap-2" id="editTagsContainer">
                         @php $availableTags = ['HTML', 'CSS', 'JavaScript', 'PHP', 'MySQL', 'Laravel', 'UI/UX Desaign']; @endphp
                         @foreach($availableTags as $tag)
-                        <label class="inline-flex items-center bg-slate-950 border border-white/10 rounded-lg px-3 py-1.5 cursor-pointer hover:border-cyan-400/50 transition">
+                        <label class="inline-flex items-center bg-slate-50 border border-slate-200 rounded-xl px-3 py-1.5 cursor-pointer hover:border-emerald-400 transition">
                             <input type="checkbox" name="tags[]" value="{{ $tag }}" class="sr-only peer edit-tag-checkbox">
-                            <span class="text-slate-400 peer-checked:text-cyan-400 text-sm">{{ $tag }}</span>
+                            <span class="text-slate-600 peer-checked:text-emerald-700 peer-checked:font-bold text-xs">{{ $tag }}</span>
                         </label>
                         @endforeach
                     </div>
                 </div>
 
-                <div class="flex flex-col sm:flex-row gap-3 pt-2">
-                    <button type="submit" class="bg-gradient-to-r from-cyan-500 to-purple-500 hover:opacity-90 px-6 py-3 rounded-xl font-medium transition flex-1">
-                        Update
+                <div class="flex gap-3 pt-4 border-t border-slate-100">
+                    <button type="submit" class="bg-gradient-to-r from-emerald-600 to-teal-600 text-white px-6 py-3 rounded-xl font-bold text-sm transition flex-1 shadow-md shadow-emerald-600/20">
+                        Perbarui Project
                     </button>
-                    <button type="button" onclick="closeEditModal()" class="bg-slate-800 hover:bg-slate-700 px-6 py-3 rounded-xl font-medium transition">
-                        Cancel
+                    <button type="button" onclick="closeEditModal()" class="bg-slate-100 text-slate-700 hover:bg-slate-200 px-6 py-3 rounded-xl font-bold text-sm transition">
+                        Batal
                     </button>
                 </div>
             </form>
@@ -217,21 +230,19 @@
     </div>
 
     <!-- Delete Modal -->
-    <div id="deleteModal" class="fixed inset-0 bg-black/80 hidden items-center justify-center z-50 p-4">
-        <div class="bg-slate-900 border border-white/10 rounded-2xl p-6 w-full max-w-sm text-center">
-            <div class="w-14 h-14 bg-red-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg class="w-7 h-7 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
-                </svg>
+    <div id="deleteModal" class="fixed inset-0 bg-slate-900/40 backdrop-blur-sm hidden items-center justify-center z-50 p-4">
+        <div class="bg-white border border-slate-200 rounded-3xl p-6 w-full max-w-sm text-center shadow-2xl">
+            <div class="w-14 h-14 bg-rose-100 rounded-2xl flex items-center justify-center mx-auto mb-4 text-rose-600 font-bold text-xl">
+                ⚠️
             </div>
-            <h2 class="text-xl font-bold mb-2">Hapus Project?</h2>
-            <p class="text-slate-400 mb-6">Project "<span id="deleteProjectTitle"></span>" akan dihapus permanen.</p>
+            <h2 class="text-xl font-extrabold text-slate-900 mb-2">Hapus Project?</h2>
+            <p class="text-slate-500 text-sm mb-6">Project "<span id="deleteProjectTitle" class="font-bold text-slate-800"></span>" akan dihapus secara permanen.</p>
             <form id="deleteForm" method="GET" class="flex gap-3">
-                <button type="submit" class="bg-red-500 hover:bg-red-400 px-6 py-3 rounded-xl font-medium transition flex-1">
-                    Hapus
+                <button type="submit" class="bg-rose-600 hover:bg-rose-700 text-white px-6 py-3 rounded-xl font-bold text-sm transition flex-1 shadow-md shadow-rose-600/20">
+                    Ya, Hapus
                 </button>
-                <button type="button" onclick="closeDeleteModal()" class="bg-slate-800 hover:bg-slate-700 px-6 py-3 rounded-xl font-medium transition flex-1">
-                    Cancel
+                <button type="button" onclick="closeDeleteModal()" class="bg-slate-100 text-slate-700 hover:bg-slate-200 px-6 py-3 rounded-xl font-bold text-sm transition flex-1">
+                    Batal
                 </button>
             </form>
         </div>
@@ -248,11 +259,11 @@
         const editCurrentImage = document.getElementById('editCurrentImage');
 
         editDropZone.addEventListener('click', () => editImageInput.click());
-        editDropZone.addEventListener('dragover', (e) => { e.preventDefault(); editDropZone.classList.add('border-cyan-400', 'bg-cyan-500/10'); });
-        editDropZone.addEventListener('dragleave', () => { editDropZone.classList.remove('border-cyan-400', 'bg-cyan-500/10'); });
+        editDropZone.addEventListener('dragover', (e) => { e.preventDefault(); editDropZone.classList.add('border-emerald-500', 'bg-emerald-50/50'); });
+        editDropZone.addEventListener('dragleave', () => { editDropZone.classList.remove('border-emerald-500', 'bg-emerald-50/50'); });
         editDropZone.addEventListener('drop', (e) => {
             e.preventDefault();
-            editDropZone.classList.remove('border-cyan-400', 'bg-cyan-500/10');
+            editDropZone.classList.remove('border-emerald-500', 'bg-emerald-50/50');
             const file = e.dataTransfer.files[0];
             if (file && file.type.startsWith('image/')) handleEditFile(file);
         });
@@ -284,8 +295,9 @@
             document.getElementById('editImage').value = image;
             document.getElementById('editLink').value = link;
             editCurrentImage.src = image;
-            const parsedTags = JSON.parse(tags);
-            document.querySelectorAll('.edit-tag-checkbox').forEach(checkbox => { checkbox.checked = parsedTags.includes(checkbox.value); });
+            let parsedTags = [];
+            try { parsedTags = typeof tags === 'string' ? JSON.parse(tags) : tags; } catch(e) {}
+            document.querySelectorAll('.edit-tag-checkbox').forEach(checkbox => { checkbox.checked = Array.isArray(parsedTags) && parsedTags.includes(checkbox.value); });
         }
 
         function closeEditModal() {
