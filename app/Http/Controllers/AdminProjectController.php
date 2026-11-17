@@ -57,15 +57,19 @@ class AdminProjectController extends Controller
     {
         if ($request->hasFile('image')) {
             $file = $request->file('image');
+    
             $filename = time() . '_' . $file->getClientOriginalName();
-            $path = $file->storeAs('public/images', $filename);
-            
+    
+            $path = $file->storeAs('images', $filename, 'public');
+    
             return response()->json([
-                'path' => '/storage/images/' . $filename,
-                'url' => asset('storage/images/' . $filename)
+                'path' => '/storage/' . $path,
+                'url' => asset('storage/' . $path)
             ]);
         }
-        
-        return response()->json(['error' => 'No file uploaded'], 400);
+    
+        return response()->json([
+            'error' => 'No file uploaded'
+        ], 400);
     }
 }
