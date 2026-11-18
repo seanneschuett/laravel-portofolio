@@ -587,7 +587,9 @@
                             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V23h-4V8zm7.5 0h3.83v2.05h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V23h-4v-7.9c0-1.88-.03-4.3-2.62-4.3-2.62 0-3.02 2.05-3.02 4.17V23h-4V8z"/></svg>
                         </a>
 
-                        <a href="mailto:{{ $layoutProfile->email ?? 'saranajila140@gmail.com' }}"
+                        <a href="https://mail.google.com/mail/?view=cm&fs=1&to={{ urlencode($layoutProfile->email ?? 'saranajila140@gmail.com') }}"
+                           target="_blank"
+                           rel="noopener"
                            title="Gmail"
                            aria-label="Gmail"
                            class="w-11 h-11 rounded-xl bg-emerald-50 border border-emerald-100 flex items-center justify-center text-emerald-700 hover:bg-emerald-600 hover:text-white hover:border-emerald-600 transition-all duration-300 shadow-sm">

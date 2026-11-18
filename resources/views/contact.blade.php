@@ -9,7 +9,7 @@
     $contactLinks = [
         'GitHub' => $profile?->linkFor('github') ?? 'https://github.com/saraa9999',
         'LinkedIn' => $profile?->linkFor('linkedin') ?? 'https://www.linkedin.com/',
-        'Gmail' => 'mailto:'.$contactEmail,
+        'Gmail' => 'https://mail.google.com/mail/?view=cm&fs=1&to='.urlencode($contactEmail),
         'Instagram' => $profile?->linkFor('instagram') ?? 'https://www.instagram.com/sarnzllyoon._/',
     ];
 @endphp

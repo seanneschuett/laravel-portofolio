@@ -123,7 +123,7 @@
         </div>
 
         <div class="bg-white border border-slate-200/80 rounded-3xl p-6 sm:p-8 shadow-sm space-y-6">
-            <h2 class="text-lg font-bold text-slate-900">Narasi & Karir</h2>
+            <h2 class="text-lg font-bold text-slate-900">Narasi</h2>
 
             <div>
                 <label class="block text-sm font-semibold text-slate-700 mb-2">Deskripsi Singkat (Personal Branding)</label>
@@ -137,24 +137,6 @@
                     class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-800 focus:bg-white focus:outline-none focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10 transition text-sm resize-none">{{ old('about', $profile->about) }}</textarea>
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                <div>
-                    <label class="block text-sm font-semibold text-slate-700 mb-2">Minat Teknologi</label>
-                    <textarea name="interests" rows="3"
-                        class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-800 focus:bg-white focus:outline-none focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10 transition text-sm resize-none">{{ old('interests', $profile->interests) }}</textarea>
-                </div>
-                <div>
-                    <label class="block text-sm font-semibold text-slate-700 mb-2">Pendidikan</label>
-                    <textarea name="education" rows="3"
-                        class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-800 focus:bg-white focus:outline-none focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10 transition text-sm resize-none">{{ old('education', $profile->education) }}</textarea>
-                </div>
-            </div>
-
-            <div>
-                <label class="block text-sm font-semibold text-slate-700 mb-2">Tujuan Karir</label>
-                <textarea name="career_goal" rows="3"
-                    class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-800 focus:bg-white focus:outline-none focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10 transition text-sm resize-none">{{ old('career_goal', $profile->career_goal) }}</textarea>
-            </div>
         </div>
 
         <div class="flex justify-end">

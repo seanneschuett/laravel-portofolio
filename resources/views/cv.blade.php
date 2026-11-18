@@ -14,7 +14,7 @@
     $socialItems = collect([
         'GitHub' => $profile?->linkFor('github'),
         'LinkedIn' => $profile?->linkFor('linkedin'),
-        'Gmail' => $profile?->email ? 'mailto:'.$profile->email : null,
+        'Gmail' => $profile?->email ? 'https://mail.google.com/mail/?view=cm&fs=1&to='.urlencode($profile->email) : null,
         'Instagram' => $profile?->linkFor('instagram'),
     ])->filter();
 @endphp
