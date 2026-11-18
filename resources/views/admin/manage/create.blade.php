@@ -27,14 +27,78 @@
 
             <div>
                 <label class="block text-sm font-semibold text-slate-700 mb-2">Judul Project</label>
-                <input type="text" name="title" placeholder="Masukkan judul project" required
+                <input type="text" name="title" value="{{ old('title') }}" placeholder="Masukkan judul project" required
                     class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3.5 text-slate-800 placeholder-slate-400 focus:bg-white focus:outline-none focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10 transition text-sm">
             </div>
 
             <div>
                 <label class="block text-sm font-semibold text-slate-700 mb-2">Deskripsi</label>
                 <textarea name="description" rows="4" placeholder="Tuliskan deskripsi ringkas tentang project ini..." required
-                    class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3.5 text-slate-800 placeholder-slate-400 focus:bg-white focus:outline-none focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10 transition text-sm resize-none"></textarea>
+                    class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3.5 text-slate-800 placeholder-slate-400 focus:bg-white focus:outline-none focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10 transition text-sm resize-none">{{ old('description') }}</textarea>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                <div>
+                    <label class="block text-sm font-semibold text-slate-700 mb-2">Slug (opsional)</label>
+                    <input type="text" name="slug" value="{{ old('slug') }}" placeholder="otomatis dari judul"
+                        class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3.5 text-slate-800 placeholder-slate-400 focus:bg-white focus:outline-none focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10 transition text-sm">
+                </div>
+                <div>
+                    <label class="block text-sm font-semibold text-slate-700 mb-2">Kategori</label>
+                    <input type="text" name="category" value="{{ old('category') }}" placeholder="Website, UI/UX, ..."
+                        class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3.5 text-slate-800 placeholder-slate-400 focus:bg-white focus:outline-none focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10 transition text-sm">
+                </div>
+            </div>
+
+            <div>
+                <label class="block text-sm font-semibold text-slate-700 mb-2">Masalah</label>
+                <textarea name="problem" rows="3" placeholder="Masalah yang ingin diselesaikan project ini..."
+                    class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3.5 text-slate-800 placeholder-slate-400 focus:bg-white focus:outline-none focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10 transition text-sm resize-none">{{ old('problem') }}</textarea>
+            </div>
+
+            <div>
+                <label class="block text-sm font-semibold text-slate-700 mb-2">Tujuan</label>
+                <textarea name="goal" rows="3" placeholder="Tujuan project ini..."
+                    class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3.5 text-slate-800 placeholder-slate-400 focus:bg-white focus:outline-none focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10 transition text-sm resize-none">{{ old('goal') }}</textarea>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                <div>
+                    <label class="block text-sm font-semibold text-slate-700 mb-2">Peran</label>
+                    <input type="text" name="role" value="{{ old('role') }}" placeholder="Fullstack Developer"
+                        class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3.5 text-slate-800 placeholder-slate-400 focus:bg-white focus:outline-none focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10 transition text-sm">
+                </div>
+                <div>
+                    <label class="block text-sm font-semibold text-slate-700 mb-2">Urutan</label>
+                    <input type="number" name="sort_order" min="0" value="{{ old('sort_order', 0) }}"
+                        class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3.5 text-slate-800 focus:bg-white focus:outline-none focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10 transition text-sm">
+                </div>
+            </div>
+
+            <div>
+                <label class="block text-sm font-semibold text-slate-700 mb-2">Fitur Utama (satu per baris)</label>
+                <textarea name="features" rows="4" placeholder="Login admin&#10;CRUD project&#10;Upload gambar"
+                    class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3.5 text-slate-800 placeholder-slate-400 focus:bg-white focus:outline-none focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10 transition text-sm resize-none">{{ old('features') }}</textarea>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                <div>
+                    <label class="block text-sm font-semibold text-slate-700 mb-2">GitHub URL</label>
+                    <input type="text" name="github_url" value="{{ old('github_url') }}" placeholder="https://github.com/..."
+                        class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3.5 text-slate-800 placeholder-slate-400 focus:bg-white focus:outline-none focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10 transition text-sm">
+                </div>
+                <div class="flex items-end pb-3">
+                    <label class="inline-flex items-center gap-2 text-sm text-slate-700">
+                        <input type="checkbox" name="is_featured" value="1" class="rounded border-slate-300 text-emerald-600 focus:ring-emerald-500" {{ old('is_featured') ? 'checked' : '' }}>
+                        Tampilkan sebagai project unggulan
+                    </label>
+                </div>
+            </div>
+
+            <div>
+                <label class="block text-sm font-semibold text-slate-700 mb-2">Dokumentasi Proses</label>
+                <textarea name="documentation" rows="3" placeholder="Tautan atau catatan dokumentasi proses..."
+                    class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3.5 text-slate-800 placeholder-slate-400 focus:bg-white focus:outline-none focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10 transition text-sm resize-none">{{ old('documentation') }}</textarea>
             </div>
 
             <div>
@@ -61,7 +125,7 @@
 
             <div>
                 <label class="block text-sm font-semibold text-slate-700 mb-2">Link Live Project</label>
-                <input type="text" name="link" placeholder="https://..." required
+                <input type="text" name="link" value="{{ old('link') }}" placeholder="https://..." required
                     class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3.5 text-slate-800 placeholder-slate-400 focus:bg-white focus:outline-none focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10 transition text-sm">
             </div>
 
@@ -71,7 +135,7 @@
                     @php $availableTags = ['HTML', 'CSS', 'JavaScript', 'PHP', 'MySQL', 'Laravel', 'UI/UX Desaign']; @endphp
                     @foreach($availableTags as $tag)
                     <label class="inline-flex items-center bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2 cursor-pointer hover:border-emerald-400 transition">
-                        <input type="checkbox" name="tags[]" value="{{ $tag }}" class="sr-only peer">
+                        <input type="checkbox" name="tags[]" value="{{ $tag }}" class="sr-only peer" {{ in_array($tag, old('tags', [])) ? 'checked' : '' }}>
                         <span class="text-slate-600 peer-checked:text-emerald-700 peer-checked:font-bold text-xs">{{ $tag }}</span>
                     </label>
                     @endforeach

@@ -30,6 +30,7 @@ class AdminProfileController extends Controller
             'bio' => 'nullable|string',
             'about' => 'nullable|string',
             'photo' => 'nullable|string|max:2048',
+            'about_photo' => 'nullable|string|max:2048',
             'cv_file' => 'nullable|string|max:2048',
             'career_goal' => 'nullable|string',
             'interests' => 'nullable|string',

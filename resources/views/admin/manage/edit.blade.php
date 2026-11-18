@@ -38,6 +38,70 @@
                     class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3.5 text-slate-800 placeholder-slate-400 focus:bg-white focus:outline-none focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10 transition text-sm resize-none">{{ $project->description }}</textarea>
             </div>
 
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                <div>
+                    <label class="block text-sm font-semibold text-slate-700 mb-2">Slug (opsional)</label>
+                    <input type="text" name="slug" value="{{ old('slug', $project->slug) }}" placeholder="otomatis dari judul"
+                        class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3.5 text-slate-800 placeholder-slate-400 focus:bg-white focus:outline-none focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10 transition text-sm">
+                </div>
+                <div>
+                    <label class="block text-sm font-semibold text-slate-700 mb-2">Kategori</label>
+                    <input type="text" name="category" value="{{ old('category', $project->category) }}" placeholder="Website, UI/UX, ..."
+                        class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3.5 text-slate-800 placeholder-slate-400 focus:bg-white focus:outline-none focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10 transition text-sm">
+                </div>
+            </div>
+
+            <div>
+                <label class="block text-sm font-semibold text-slate-700 mb-2">Masalah</label>
+                <textarea name="problem" rows="3" placeholder="Masalah yang ingin diselesaikan project ini..."
+                    class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3.5 text-slate-800 placeholder-slate-400 focus:bg-white focus:outline-none focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10 transition text-sm resize-none">{{ old('problem', $project->problem) }}</textarea>
+            </div>
+
+            <div>
+                <label class="block text-sm font-semibold text-slate-700 mb-2">Tujuan</label>
+                <textarea name="goal" rows="3" placeholder="Tujuan project ini..."
+                    class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3.5 text-slate-800 placeholder-slate-400 focus:bg-white focus:outline-none focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10 transition text-sm resize-none">{{ old('goal', $project->goal) }}</textarea>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                <div>
+                    <label class="block text-sm font-semibold text-slate-700 mb-2">Peran</label>
+                    <input type="text" name="role" value="{{ old('role', $project->role) }}" placeholder="Fullstack Developer"
+                        class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3.5 text-slate-800 placeholder-slate-400 focus:bg-white focus:outline-none focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10 transition text-sm">
+                </div>
+                <div>
+                    <label class="block text-sm font-semibold text-slate-700 mb-2">Urutan</label>
+                    <input type="number" name="sort_order" min="0" value="{{ old('sort_order', $project->sort_order ?? 0) }}"
+                        class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3.5 text-slate-800 focus:bg-white focus:outline-none focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10 transition text-sm">
+                </div>
+            </div>
+
+            <div>
+                <label class="block text-sm font-semibold text-slate-700 mb-2">Fitur Utama (satu per baris)</label>
+                <textarea name="features" rows="4" placeholder="Login admin&#10;CRUD project&#10;Upload gambar"
+                    class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3.5 text-slate-800 placeholder-slate-400 focus:bg-white focus:outline-none focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10 transition text-sm resize-none">{{ old('features', implode("\n", $project->features ?? [])) }}</textarea>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                <div>
+                    <label class="block text-sm font-semibold text-slate-700 mb-2">GitHub URL</label>
+                    <input type="text" name="github_url" value="{{ old('github_url', $project->github_url) }}" placeholder="https://github.com/..."
+                        class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3.5 text-slate-800 placeholder-slate-400 focus:bg-white focus:outline-none focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10 transition text-sm">
+                </div>
+                <div class="flex items-end pb-3">
+                    <label class="inline-flex items-center gap-2 text-sm text-slate-700">
+                        <input type="checkbox" name="is_featured" value="1" class="rounded border-slate-300 text-emerald-600 focus:ring-emerald-500" {{ $project->is_featured ? 'checked' : '' }}>
+                        Tampilkan sebagai project unggulan
+                    </label>
+                </div>
+            </div>
+
+            <div>
+                <label class="block text-sm font-semibold text-slate-700 mb-2">Dokumentasi Proses</label>
+                <textarea name="documentation" rows="3" placeholder="Tautan atau catatan dokumentasi proses..."
+                    class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3.5 text-slate-800 placeholder-slate-400 focus:bg-white focus:outline-none focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10 transition text-sm resize-none">{{ old('documentation', $project->documentation) }}</textarea>
+            </div>
+
             <div>
                 <label class="block text-sm font-semibold text-slate-700 mb-2">Gambar Cover Project</label>
                 <div id="dropZone" class="border-2 border-dashed border-slate-200 rounded-2xl p-6 md:p-8 text-center cursor-pointer hover:border-emerald-500 hover:bg-emerald-50/30 transition">

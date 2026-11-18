@@ -81,20 +81,30 @@
                 </a>
 
                 <!-- Desktop Menu -->
-                <ul class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
+                <ul class="hidden md:flex items-center gap-6 lg:gap-8 text-sm font-medium text-slate-600">
                     <li>
                         <a href="/" class="hover:text-emerald-600 transition duration-200 py-1 border-b-2 border-transparent hover:border-emerald-500">
                             Home
                         </a>
                     </li>
                     <li>
-                        <a href="/#about" class="hover:text-emerald-600 transition duration-200 py-1 border-b-2 border-transparent hover:border-emerald-500">
+                        <a href="/about" class="hover:text-emerald-600 transition duration-200 py-1 border-b-2 border-transparent hover:border-emerald-500">
                             About
                         </a>
                     </li>
                     <li>
-                        <a href="/#projects" class="hover:text-emerald-600 transition duration-200 py-1 border-b-2 border-transparent hover:border-emerald-500">
+                        <a href="/projects" class="hover:text-emerald-600 transition duration-200 py-1 border-b-2 border-transparent hover:border-emerald-500">
                             Projects
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/certificates" class="hover:text-emerald-600 transition duration-200 py-1 border-b-2 border-transparent hover:border-emerald-500">
+                            Certificates
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/blog" class="hover:text-emerald-600 transition duration-200 py-1 border-b-2 border-transparent hover:border-emerald-500">
+                            Blog
                         </a>
                     </li>
                     <li>
@@ -130,13 +140,23 @@
                         </a>
                     </li>
                     <li>
-                        <a href="/#about" class="block py-2 px-3 rounded-lg hover:bg-emerald-50 hover:text-emerald-600 transition">
+                        <a href="/about" class="block py-2 px-3 rounded-lg hover:bg-emerald-50 hover:text-emerald-600 transition">
                             About
                         </a>
                     </li>
                     <li>
-                        <a href="/#projects" class="block py-2 px-3 rounded-lg hover:bg-emerald-50 hover:text-emerald-600 transition">
+                        <a href="/projects" class="block py-2 px-3 rounded-lg hover:bg-emerald-50 hover:text-emerald-600 transition">
                             Projects
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/certificates" class="block py-2 px-3 rounded-lg hover:bg-emerald-50 hover:text-emerald-600 transition">
+                            Certificates
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/blog" class="block py-2 px-3 rounded-lg hover:bg-emerald-50 hover:text-emerald-600 transition">
+                            Blog
                         </a>
                     </li>
                     <li>
@@ -204,13 +224,28 @@
                             </a>
                         </li>
                         <li>
-                            <a href="/#about" class="hover:text-emerald-600 transition flex items-center gap-2">
+                            <a href="/about" class="hover:text-emerald-600 transition flex items-center gap-2">
                                 <span class="text-emerald-500 text-xs">›</span> About
                             </a>
                         </li>
                         <li>
-                            <a href="/#projects" class="hover:text-emerald-600 transition flex items-center gap-2">
+                            <a href="/projects" class="hover:text-emerald-600 transition flex items-center gap-2">
                                 <span class="text-emerald-500 text-xs">›</span> Projects
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/certificates" class="hover:text-emerald-600 transition flex items-center gap-2">
+                                <span class="text-emerald-500 text-xs">›</span> Certificates
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/blog" class="hover:text-emerald-600 transition flex items-center gap-2">
+                                <span class="text-emerald-500 text-xs">›</span> Blog
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/cv" class="hover:text-emerald-600 transition flex items-center gap-2">
+                                <span class="text-emerald-500 text-xs">›</span> CV Digital
                             </a>
                         </li>
                         <li>

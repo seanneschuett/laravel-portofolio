@@ -15,6 +15,21 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [PortfolioController::class, 'home'])->name('home');
 
+Route::get('/about', [PortfolioController::class, 'about'])->name('about');
+
+Route::get('/projects', [PortfolioController::class, 'projects'])->name('projects.index');
+Route::get('/projects/{project}', [PortfolioController::class, 'projectShow'])->name('projects.show');
+Route::post('/projects/{project}/feedback', [PortfolioController::class, 'storeFeedback'])
+    ->middleware('throttle:5,1')
+    ->name('projects.feedback');
+
+Route::get('/certificates', [PortfolioController::class, 'certificates'])->name('certificates.index');
+
+Route::get('/blog', [PortfolioController::class, 'blog'])->name('blog.index');
+Route::get('/blog/{slug}', [PortfolioController::class, 'postShow'])->name('blog.show');
+
+Route::get('/cv', [PortfolioController::class, 'cv'])->name('cv');
+
 Route::get('/contact', [PortfolioController::class, 'contact'])->name('contact');
 
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.send');

@@ -24,7 +24,7 @@
         </div>
         <div class="flex items-end pb-3">
             <label class="inline-flex items-center gap-2 text-sm text-slate-700">
-                <input type="checkbox" name="is_published" value="1" class="rounded border-slate-300 text-emerald-600 focus:ring-emerald-500" {{ !empty($post->is_published) ? 'checked' : '' }}>
+                <input type="checkbox" name="is_published" value="1" class="rounded border-slate-300 text-emerald-600 focus:ring-emerald-500" {{ old('is_published', $post->is_published ?? true) ? 'checked' : '' }}>
                 Publikasikan artikel
             </label>
         </div>

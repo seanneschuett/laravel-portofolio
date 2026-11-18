@@ -95,11 +95,11 @@
         </div>
 
         <div class="bg-white border border-slate-200/80 rounded-3xl p-6 sm:p-8 shadow-sm space-y-6">
-            <h2 class="text-lg font-bold text-slate-900">Foto Profil & CV</h2>
+            <h2 class="text-lg font-bold text-slate-900">Foto & CV</h2>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
-                    <label class="block text-sm font-semibold text-slate-700 mb-2">Foto Profil</label>
+                    <label class="block text-sm font-semibold text-slate-700 mb-2">Foto Hero (Beranda)</label>
                     <div id="photoDropZone" class="border-2 border-dashed border-slate-200 rounded-2xl p-4 text-center cursor-pointer hover:border-emerald-500 hover:bg-emerald-50/30 transition">
                         <input type="file" id="photoInput" accept="image/*" class="hidden">
                         <img id="photoPreview" src="{{ $profile->photo }}" alt="Foto" class="max-h-40 mx-auto rounded-xl mb-2 object-cover {{ $profile->photo ? '' : 'hidden' }}">
@@ -109,6 +109,16 @@
                 </div>
 
                 <div>
+                    <label class="block text-sm font-semibold text-slate-700 mb-2">Foto Tentang Saya</label>
+                    <div id="aboutPhotoDropZone" class="border-2 border-dashed border-slate-200 rounded-2xl p-4 text-center cursor-pointer hover:border-emerald-500 hover:bg-emerald-50/30 transition">
+                        <input type="file" id="aboutPhotoInput" accept="image/*" class="hidden">
+                        <img id="aboutPhotoPreview" src="{{ $profile->about_photo }}" alt="Foto Tentang Saya" class="max-h-40 mx-auto rounded-xl mb-2 object-cover {{ $profile->about_photo ? '' : 'hidden' }}">
+                        <p class="text-emerald-700 font-semibold text-xs">Klik untuk upload foto</p>
+                    </div>
+                    <input type="hidden" name="about_photo" id="aboutPhotoPath" value="{{ $profile->about_photo }}">
+                </div>
+
+                <div class="sm:col-span-2">
                     <label class="block text-sm font-semibold text-slate-700 mb-2">File CV (PDF)</label>
                     <div class="space-y-3">
                         <input type="file" id="cvInput" accept=".pdf,.doc,.docx"
@@ -188,6 +198,31 @@
                     photoPath.value = data.path;
                     photoPreview.src = data.url;
                     photoPreview.classList.remove('hidden');
+                }
+            });
+        });
+
+        const aboutPhotoDropZone = document.getElementById('aboutPhotoDropZone');
+        const aboutPhotoInput = document.getElementById('aboutPhotoInput');
+        const aboutPhotoPreview = document.getElementById('aboutPhotoPreview');
+        const aboutPhotoPath = document.getElementById('aboutPhotoPath');
+
+        aboutPhotoDropZone.addEventListener('click', () => aboutPhotoInput.click());
+        aboutPhotoInput.addEventListener('change', (e) => {
+            if (!e.target.files[0]) return;
+            const formData = new FormData();
+            formData.append('image', e.target.files[0]);
+            fetch('/admin/upload/image', {
+                method: 'POST',
+                headers: { 'X-CSRF-TOKEN': '{{ csrf_token() }}' },
+                body: formData
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (data.path) {
+                    aboutPhotoPath.value = data.path;
+                    aboutPhotoPreview.src = data.url;
+                    aboutPhotoPreview.classList.remove('hidden');
                 }
             });
         });

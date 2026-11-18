@@ -4,6 +4,20 @@
 
 @section('content')
 
+@php
+    $displayName = $profile->full_name ?? 'Sara Nazilla';
+    $displayMajor = $profile->major ?? 'Web Developer & UI/UX Designer';
+    $displayClass = trim(($profile->class ?? '').' · '.($profile->school ?? ''), ' ·');
+    $displayBio = $profile->bio ?? 'Saya menciptakan aplikasi web modern, responsif, dan menarik secara visual dengan struktur kode yang bersih serta pengalaman pengguna yang nyaman.';
+    $heroPhoto = $profile->photo ?? asset('images/paspoto.jpeg');
+    $cvLink = '/cv';
+    if ($profile && $profile->cv_file) {
+        $cvLink = \Illuminate\Support\Str::startsWith($profile->cv_file, ['http://', 'https://'])
+            ? $profile->cv_file
+            : asset($profile->cv_file);
+    }
+@endphp
+
 <!-- Hero Section -->
 <section class="min-h-[85vh] flex items-center justify-center px-4 sm:px-6 relative overflow-hidden py-12">
 
@@ -15,21 +29,25 @@
             <!-- Pill Badge -->
             <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-50 border border-emerald-200/80 text-emerald-700 text-xs font-semibold uppercase tracking-wider shadow-sm">
                 <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                Web Developer & UI/UX Designer
+                {{ $displayMajor }}
             </div>
 
             <!-- Headline -->
             <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 leading-[1.15]">
                 Halo, Saya <br class="hidden sm:inline" />
                 <span class="gradient-emerald-text">
-                    Sara Nazilla
+                    {{ $displayName }}
                 </span>
             </h1>
 
             <!-- Subtitle -->
             <p class="text-slate-600 text-base sm:text-lg leading-relaxed max-w-xl mx-auto md:mx-0">
-                Saya menciptakan aplikasi web modern, responsif, dan menarik secara visual dengan struktur kode yang bersih serta pengalaman pengguna yang nyaman.
+                {{ $displayBio }}
             </p>
+
+            @if($displayClass !== '')
+                <p class="text-sm font-semibold text-emerald-700">{{ $displayClass }}</p>
+            @endif
 
             <!-- Buttons CTA -->
             <div class="flex flex-wrap items-center justify-center md:justify-start gap-4 pt-2">
@@ -37,6 +55,11 @@
                    class="bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white px-7 py-3.5 rounded-xl font-semibold transition duration-300 shadow-lg shadow-emerald-600/25 hover:shadow-xl hover:shadow-emerald-600/35 hover:-translate-y-0.5 flex items-center gap-2">
                     <span>Lihat Portfolio</span>
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
+                </a>
+
+                <a href="{{ $cvLink }}"
+                   class="bg-white hover:bg-emerald-50/50 border border-slate-200 hover:border-emerald-300 text-slate-700 hover:text-emerald-700 px-7 py-3.5 rounded-xl font-semibold transition duration-300 shadow-sm hover:-translate-y-0.5">
+                    Lihat CV
                 </a>
 
                 <a href="/contact"
@@ -96,8 +119,8 @@
 
                 <!-- Profile Image -->
                 <div class="relative z-10 p-2 bg-white shadow-2xl ring-4 ring-emerald-500/20 rounded-[1.75rem]">
-                    <img src="{{ asset('images/paspoto.jpeg') }}"
-                          alt="Sara Nazilla"
+                    <img src="{{ $heroPhoto }}"
+                          alt="{{ $displayName }}"
                           class="w-[280px] h-[340px] sm:w-[340px] sm:h-[400px] lg:w-[380px] lg:h-[300px] object-cover object-top rounded-[1.35rem] transition duration-500 hover:scale-[1.02]">
                 </div>
 
@@ -119,7 +142,7 @@
                 Tentang Saya
             </span>
             <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900">
-                Mengenal Lebih Dekat <span class="gradient-emerald-text">Sara</span>
+                Mengenal Lebih Dekat <span class="gradient-emerald-text">{{ $profile->nickname ?? 'Sara' }}</span>
             </h2>
         </div>
 
@@ -130,8 +153,8 @@
             <div class="md:col-span-5 flex justify-center">
                 <div class="relative">
                     <div class="absolute inset-0 bg-emerald-200/50 rounded-3xl blur-2xl -rotate-3"></div>
-                    <img src="{{ asset('images/paspoto2.jpeg') }}"
-                         alt="About Sara Nazilla"
+                    <img src="{{ $profile->about_photo ?? asset('images/paspoto2.jpeg') }}"
+                         alt="About {{ $displayName }}"
                          class="relative z-10 w-full max-w-[320px] h-[400px] object-cover rounded-3xl border-4 border-white shadow-xl">
                 </div>
             </div>
@@ -143,7 +166,7 @@
                 </h3>
 
                 <p class="text-slate-600 leading-relaxed">
-                    Saya berdedikasi menciptakan pengalaman web yang tidak hanya menarik secara visual tetapi juga efisien dan mudah digunakan. Setiap baris kode dirancang untuk memberikan hasil akhir yang terbaik.
+                    {{ $profile->about ?? 'Saya berdedikasi menciptakan pengalaman web yang tidak hanya menarik secara visual tetapi juga efisien dan mudah digunakan. Setiap baris kode dirancang untuk memberikan hasil akhir yang terbaik.' }}
                 </p>
 
                 <p class="text-slate-600 leading-relaxed">
@@ -178,6 +201,50 @@
     </div>
 
 </section>
+
+<!-- Skills Section -->
+@if($skills->isNotEmpty())
+<section id="skills" class="py-24 px-4 sm:px-6 relative">
+
+    <div class="max-w-6xl mx-auto relative z-10">
+
+        <div class="text-center mb-16">
+            <span class="px-4 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-semibold uppercase tracking-wider inline-block mb-3">
+                Keahlian
+            </span>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900">
+                Hard Skill & <span class="gradient-emerald-text">Soft Skill</span>
+            </h2>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6">
+            @foreach(['hard' => 'Hard Skill', 'soft' => 'Soft Skill'] as $category => $label)
+                @php $items = $skills->where('category', $category); @endphp
+                @if($items->isNotEmpty())
+                <div class="bg-white border border-slate-200/80 rounded-3xl p-6 sm:p-8 shadow-sm">
+                    <h3 class="text-xl font-bold text-slate-900 mb-6">{{ $label }}</h3>
+                    <div class="space-y-5">
+                        @foreach($items as $skill)
+                        <div>
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-sm font-semibold text-slate-700">{{ $skill->name }}</span>
+                                <span class="text-xs font-bold text-emerald-700">{{ $skill->percentage }}%</span>
+                            </div>
+                            <div class="h-2 bg-slate-100 rounded-full overflow-hidden">
+                                <div class="h-full bg-gradient-to-r from-emerald-600 to-teal-500 rounded-full" style="width: {{ max(0, min(100, $skill->percentage)) }}%"></div>
+                            </div>
+                        </div>
+                        @endforeach
+                    </div>
+                </div>
+                @endif
+            @endforeach
+        </div>
+
+    </div>
+
+</section>
+@endif
 
 <!-- Projects Carousel Section -->
 <section id="projects" class="py-24 px-4 sm:px-6 relative">
@@ -271,7 +338,7 @@
 
                     <!-- Footer Link -->
                     <div class="px-6 pb-6 pt-0">
-                        <a href="{{ $project->link }}" target="_blank"
+                        <a href="/projects/{{ $project->id }}"
                            class="inline-flex items-center gap-2 text-sm font-semibold text-emerald-600 hover:text-emerald-700 group-hover:translate-x-1 transition duration-200">
                             <span>Lihat Detail Project</span>
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
@@ -289,6 +356,82 @@
     </div>
 
 </section>
+
+<!-- Experience & Certificates Section -->
+@if($experiences->isNotEmpty() || $certificates->isNotEmpty())
+<section id="journey" class="py-24 px-4 sm:px-6 relative bg-white/60 border-y border-slate-200/60">
+
+    <div class="max-w-7xl mx-auto relative z-10">
+
+        <div class="text-center mb-16">
+            <span class="px-4 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-semibold uppercase tracking-wider inline-block mb-3">
+                Perjalanan
+            </span>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mb-4">
+                Pengalaman & <span class="gradient-emerald-text">Pencapaian</span>
+            </h2>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8">
+
+            @if($experiences->isNotEmpty())
+            <div>
+                <h3 class="text-xl font-bold text-slate-900 mb-5">Pengalaman</h3>
+                <div class="space-y-4">
+                    @foreach($experiences as $experience)
+                    <div class="bg-white border border-slate-200/80 rounded-2xl p-5 shadow-sm">
+                        <div class="flex items-center justify-between gap-3 mb-2">
+                            <span class="text-[11px] font-semibold px-2.5 py-0.5 rounded-lg border bg-emerald-50 text-emerald-700 border-emerald-200">
+                                {{ $experience->type === 'plk' ? 'PLK' : ucfirst($experience->type) }}
+                            </span>
+                            @if($experience->period)
+                                <span class="text-xs text-slate-500">{{ $experience->period }}</span>
+                            @endif
+                        </div>
+                        <h4 class="font-bold text-slate-900">{{ $experience->title }}</h4>
+                        @if($experience->place)
+                            <p class="text-emerald-700 text-xs font-semibold mt-1">{{ $experience->place }}</p>
+                        @endif
+                        @if($experience->description)
+                            <p class="text-slate-600 text-sm leading-relaxed mt-2">{{ $experience->description }}</p>
+                        @endif
+                    </div>
+                    @endforeach
+                </div>
+            </div>
+            @endif
+
+            @if($certificates->isNotEmpty())
+            <div>
+                <div class="flex items-center justify-between mb-5">
+                    <h3 class="text-xl font-bold text-slate-900">Sertifikat & Prestasi</h3>
+                    <a href="/certificates" class="text-sm font-semibold text-emerald-600 hover:text-emerald-700">Lihat semua →</a>
+                </div>
+                <div class="space-y-4">
+                    @foreach($certificates->take(4) as $certificate)
+                    <div class="bg-white border border-slate-200/80 rounded-2xl p-4 shadow-sm flex items-center gap-4">
+                        <div class="w-16 h-16 rounded-xl bg-slate-100 overflow-hidden shrink-0">
+                            @if($certificate->image)
+                                <img src="{{ $certificate->image }}" alt="{{ $certificate->title }}" class="w-full h-full object-cover">
+                            @endif
+                        </div>
+                        <div class="min-w-0">
+                            <p class="text-[11px] font-semibold text-emerald-700 uppercase tracking-wider">{{ ucfirst($certificate->type) }}</p>
+                            <h4 class="font-bold text-slate-900 text-sm truncate">{{ $certificate->title }}</h4>
+                            <p class="text-slate-500 text-xs">{{ $certificate->issuer }}{{ $certificate->year ? ' · '.$certificate->year : '' }}</p>
+                        </div>
+                    </div>
+                    @endforeach
+                </div>
+            </div>
+            @endif
+
+        </div>
+
+    </div>
+
+</section>
+@endif
 
 <!-- Testimonials Section -->
 <section id="testimoni" class="py-24 px-4 sm:px-6 relative bg-white/60 border-y border-slate-200/60 scroll-mt-24">
@@ -408,6 +551,55 @@
     </div>
 
 </section>
+
+<!-- Latest Blog Section -->
+@if($posts->isNotEmpty())
+<section id="blog" class="py-24 px-4 sm:px-6 relative">
+
+    <div class="max-w-7xl mx-auto relative z-10">
+
+        <div class="text-center mb-16">
+            <span class="px-4 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-semibold uppercase tracking-wider inline-block mb-3">
+                Blog
+            </span>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mb-4">
+                Catatan <span class="gradient-emerald-text">Coding</span>
+            </h2>
+            <p class="text-slate-600 max-w-xl mx-auto text-sm sm:text-base">
+                Tulisan terbaru seputar pengembangan web, Laravel, dan desain antarmuka.
+            </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6">
+            @foreach($posts as $post)
+            <a href="/blog/{{ $post->slug }}" class="group bg-white border border-slate-200/80 rounded-3xl overflow-hidden hover:border-emerald-300 hover:shadow-xl hover:shadow-emerald-600/10 transition duration-300 flex flex-col">
+                <div class="h-44 bg-slate-100 overflow-hidden">
+                    @if($post->cover)
+                        <img src="{{ $post->cover }}" alt="{{ $post->title }}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    @endif
+                </div>
+                <div class="p-6 flex-1 flex flex-col">
+                    <p class="text-xs text-slate-500 mb-2">{{ ($post->published_at ?? $post->created_at)->format('d M Y') }}</p>
+                    <h3 class="text-lg font-bold text-slate-900 group-hover:text-emerald-600 transition mb-2 line-clamp-2">{{ $post->title }}</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed flex-1 line-clamp-3">
+                        {{ \Illuminate\Support\Str::limit($post->excerpt ?? strip_tags($post->content), 120) }}
+                    </p>
+                    <span class="inline-flex items-center gap-2 text-sm font-semibold text-emerald-600 mt-4">Baca artikel <span>→</span></span>
+                </div>
+            </a>
+            @endforeach
+        </div>
+
+        <div class="text-center mt-10">
+            <a href="/blog" class="inline-flex items-center gap-2 bg-white border border-slate-200 hover:border-emerald-300 hover:text-emerald-700 text-slate-700 px-6 py-3 rounded-xl font-semibold transition shadow-sm">
+                Lihat Semua Artikel <span>→</span>
+            </a>
+        </div>
+
+    </div>
+
+</section>
+@endif
 
 <!-- Call to Action Banner -->
 <section class="py-16 px-4 sm:px-6">

@@ -4,6 +4,18 @@
 
 @section('content')
 
+@php
+    $contactEmail = $profile->email ?? 'saranajila140@gmail.com';
+    $contactLocation = $profile->location ?? 'Banjarmasin, Indonesia';
+    $contactPhone = $profile->phone ?? '+62 896 8139 2003';
+    $socialLinks = collect([
+        'GitHub' => $profile->github ?? null,
+        'Instagram' => $profile->instagram ?? 'https://www.instagram.com/sarnzllyoon._/',
+        'LinkedIn' => $profile->linkedin ?? null,
+        'WhatsApp' => $profile->whatsapp ?? 'https://wa.me/6289681392003',
+    ])->filter();
+@endphp
+
 <!-- Contact Section -->
 <section class="py-12 px-4 sm:px-6 relative overflow-hidden">
 
@@ -51,8 +63,8 @@
                             <h4 class="font-bold text-slate-900 text-sm">
                                 Email
                             </h4>
-                            <p class="text-slate-600 text-sm">
-                                saranajila140@gmail.com
+                            <p class="text-slate-600 text-sm break-all">
+                                {{ $contactEmail }}
                             </p>
                         </div>
                     </div>
@@ -67,7 +79,7 @@
                                 Lokasi
                             </h4>
                             <p class="text-slate-600 text-sm">
-                                Banjarmasin, Indonesia
+                                {{ $contactLocation }}
                             </p>
                         </div>
                     </div>
@@ -82,10 +94,23 @@
                                 Telepon / WhatsApp
                             </h4>
                             <p class="text-slate-600 text-sm">
-                                +62 896 8139 2003
+                                {{ $contactPhone }}
                             </p>
                         </div>
                     </div>
+
+                    @if($socialLinks->isNotEmpty())
+                    <div class="pt-2">
+                        <p class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-3">Media Sosial</p>
+                        <div class="flex flex-wrap gap-2">
+                            @foreach($socialLinks as $label => $url)
+                                <a href="{{ $url }}" target="_blank" class="px-3 py-1.5 rounded-lg bg-emerald-50 border border-emerald-100 text-emerald-700 text-xs font-semibold hover:bg-emerald-600 hover:text-white transition">
+                                    {{ $label }}
+                                </a>
+                            @endforeach
+                        </div>
+                    </div>
+                    @endif
 
                 </div>
 
@@ -94,6 +119,9 @@
                     <p class="text-sm text-slate-600 flex items-center gap-2">
                         <span class="w-2 h-2 rounded-full bg-emerald-500"></span> Biasa membalas dalam waktu kurang dari 24 jam
                     </p>
+                    <a href="/#testimoni" class="inline-flex items-center gap-2 text-sm font-semibold text-emerald-600 hover:text-emerald-700 mt-3">
+                        Ingin memberi kesan & pesan? Tulis testimoni <span>→</span>
+                    </a>
                 </div>
 
             </div>

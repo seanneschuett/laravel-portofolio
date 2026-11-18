@@ -18,6 +18,7 @@ class Profile extends Model
         'bio',
         'about',
         'photo',
+        'about_photo',
         'cv_file',
         'career_goal',
         'interests',
