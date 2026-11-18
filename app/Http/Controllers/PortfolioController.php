@@ -2,14 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Project;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PortfolioController extends Controller
 {
-public function home()
+    public function home()
     {
         $projects = Project::all();
+
         return view('home', compact('projects'));
     }
 
@@ -25,21 +27,29 @@ public function home()
 
     public function login(Request $request)
     {
-        $username = $request->username;
-        $password = $request->password;
+        $credentials = $request->validate([
+            'username' => 'required|string',
+            'password' => 'required|string',
+        ]);
 
-        if ($username == 'admin' && $password == '12345') {
-            session(['admin' => true]);
-            return redirect('/admin/projects');
+        if (Auth::attempt($credentials)) {
+            $request->session()->regenerate();
+
+            return redirect()->intended('/admin/projects');
         }
 
-        return back()->with('error', 'Username atau password salah');
+        return back()
+            ->withInput($request->only('username'))
+            ->with('error', 'Username atau password salah');
     }
 
-    public function logout()
+    public function logout(Request $request)
     {
-        session()->forget('admin');
+        Auth::logout();
+
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
         return redirect('/admin/login');
     }
 }
-

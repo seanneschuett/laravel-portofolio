@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Project;
+use Illuminate\Http\Request;
 
 class AdminProjectController extends Controller
 {
     public function index()
     {
         $projects = Project::all();
+
         return view('admin.manage.index', compact('projects'));
     }
 
@@ -20,8 +21,7 @@ class AdminProjectController extends Controller
 
     public function store(Request $request)
     {
-        $data = $request->all();
-        $data['tags'] = json_encode($request->tags ?? []);
+        $data = $this->validatedData($request);
 
         Project::create($data);
 
@@ -31,6 +31,7 @@ class AdminProjectController extends Controller
     public function edit($id)
     {
         $project = Project::findOrFail($id);
+
         return view('admin.manage.edit', compact('project'));
     }
 
@@ -38,10 +39,7 @@ class AdminProjectController extends Controller
     {
         $project = Project::findOrFail($id);
 
-        $data = $request->all();
-        $data['tags'] = json_encode($request->tags ?? []);
-
-        $project->update($data);
+        $project->update($this->validatedData($request));
 
         return redirect('/admin/projects');
     }
@@ -55,21 +53,35 @@ class AdminProjectController extends Controller
 
     public function upload(Request $request)
     {
-        if ($request->hasFile('image')) {
-            $file = $request->file('image');
-    
-            $filename = time() . '_' . $file->getClientOriginalName();
-    
-            $path = $file->storeAs('images', $filename, 'public');
-    
-            return response()->json([
-                'path' => '/storage/' . $path,
-                'url' => asset('storage/' . $path)
-            ]);
-        }
-    
+        $request->validate([
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,webp|max:4096',
+        ]);
+
+        $file = $request->file('image');
+
+        $filename = time().'_'.$file->getClientOriginalName();
+
+        $path = $file->storeAs('images', $filename, 'public');
+
         return response()->json([
-            'error' => 'No file uploaded'
-        ], 400);
+            'path' => '/storage/'.$path,
+            'url' => asset('storage/'.$path),
+        ]);
+    }
+
+    private function validatedData(Request $request): array
+    {
+        $data = $request->validate([
+            'title' => 'required|string|max:255',
+            'description' => 'required|string',
+            'image' => 'required|string|max:2048',
+            'link' => 'required|string|max:2048',
+            'tags' => 'nullable|array',
+            'tags.*' => 'string|max:50',
+        ]);
+
+        $data['tags'] = json_encode($data['tags'] ?? []);
+
+        return $data;
     }
 }

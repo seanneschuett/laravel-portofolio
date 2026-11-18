@@ -226,8 +226,8 @@
                         <!-- Image Container -->
                         <div class="overflow-hidden relative h-56 bg-slate-100">
                             <img src="{{ asset($project->image) }}"
-     alt="{{ $project->title }}"
-     class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                            alt="{{ $project->title }}"
+                            class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                             <div class="absolute top-4 right-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-xs font-semibold text-emerald-700 shadow-sm border border-emerald-100">
                                 Portfolio
                             </div>

@@ -237,7 +237,9 @@
             </div>
             <h2 class="text-xl font-extrabold text-slate-900 mb-2">Hapus Project?</h2>
             <p class="text-slate-500 text-sm mb-6">Project "<span id="deleteProjectTitle" class="font-bold text-slate-800"></span>" akan dihapus secara permanen.</p>
-            <form id="deleteForm" method="GET" class="flex gap-3">
+            <form id="deleteForm" method="POST" class="flex gap-3">
+                @csrf
+                @method('DELETE')
                 <button type="submit" class="bg-rose-600 hover:bg-rose-700 text-white px-6 py-3 rounded-xl font-bold text-sm transition flex-1 shadow-md shadow-rose-600/20">
                     Ya, Hapus
                 </button>
