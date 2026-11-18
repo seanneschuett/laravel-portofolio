@@ -290,6 +290,125 @@
 
 </section>
 
+<!-- Testimonials Section -->
+<section id="testimoni" class="py-24 px-4 sm:px-6 relative bg-white/60 border-y border-slate-200/60 scroll-mt-24">
+
+    <div class="max-w-7xl mx-auto relative z-10">
+
+        <!-- Title -->
+        <div class="text-center mb-16">
+            <span class="px-4 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-semibold uppercase tracking-wider inline-block mb-3">
+                Testimoni
+            </span>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mb-4">
+                Kata Mereka Tentang <span class="gradient-emerald-text">Sara</span>
+            </h2>
+            <p class="text-slate-600 max-w-xl mx-auto text-sm sm:text-base">
+                Testimoni dari guru, teman, pengguna, dan tempat PLK yang telah bekerja sama.
+            </p>
+        </div>
+
+        <div class="grid lg:grid-cols-3 gap-8 items-start">
+
+            <!-- Testimonials List -->
+            <div class="lg:col-span-2">
+                @if($testimonials->isEmpty())
+                    <div class="bg-white border border-slate-200/80 rounded-3xl p-10 text-center text-slate-500 text-sm">
+                        Belum ada testimoni yang dipublikasikan.
+                    </div>
+                @else
+                    <div class="grid sm:grid-cols-2 gap-5">
+                        @foreach($testimonials as $testimonial)
+                        <div class="bg-white border border-slate-200/80 rounded-3xl p-6 shadow-sm hover:border-emerald-300 transition duration-300 flex flex-col">
+                            <div class="flex items-center gap-3 mb-3">
+                                @if($testimonial->photo)
+                                    <img src="{{ $testimonial->photo }}" alt="{{ $testimonial->name }}" class="w-11 h-11 rounded-full object-cover">
+                                @else
+                                    <div class="w-11 h-11 rounded-full bg-emerald-50 text-emerald-700 flex items-center justify-center font-bold">{{ strtoupper(substr($testimonial->name, 0, 1)) }}</div>
+                                @endif
+                                <div>
+                                    <h3 class="font-bold text-slate-900 text-sm">{{ $testimonial->name }}</h3>
+                                    <p class="text-slate-500 text-xs">{{ $testimonial->role }}{{ $testimonial->origin ? ' · '.ucfirst($testimonial->origin) : '' }}</p>
+                                </div>
+                            </div>
+                            <div class="text-amber-500 text-sm mb-2">{{ str_repeat('★', (int) $testimonial->rating) }}{{ str_repeat('☆', 5 - (int) $testimonial->rating) }}</div>
+                            <p class="text-slate-600 text-sm leading-relaxed flex-1">{{ $testimonial->message }}</p>
+                        </div>
+                        @endforeach
+                    </div>
+                @endif
+            </div>
+
+            <!-- Submission Form -->
+            <div class="bg-white border border-slate-200/80 rounded-3xl p-6 sm:p-8 shadow-sm lg:sticky lg:top-28">
+                <h3 class="text-xl font-bold text-slate-900 mb-1">Tulis Testimoni</h3>
+                <p class="text-slate-500 text-sm mb-5">Testimoni akan tampil setelah disetujui admin.</p>
+
+                @if(session('testimonial_success'))
+                    <div class="bg-emerald-50 border border-emerald-200 text-emerald-800 p-4 rounded-xl text-sm font-medium mb-4">
+                        {{ session('testimonial_success') }}
+                    </div>
+                @endif
+
+                @if($errors->any())
+                    <div class="bg-rose-50 border border-rose-200 text-rose-700 p-4 rounded-xl text-sm font-medium mb-4">
+                        {{ $errors->first() }}
+                    </div>
+                @endif
+
+                <form action="/testimonials" method="POST" class="space-y-4">
+                    @csrf
+
+                    <div>
+                        <label class="block text-sm font-semibold text-slate-700 mb-2">Nama</label>
+                        <input type="text" name="name" value="{{ old('name') }}" required
+                            class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-800 focus:bg-white focus:outline-none focus:border-emerald-500 transition text-sm">
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-semibold text-slate-700 mb-2">Peran (opsional)</label>
+                        <input type="text" name="role" value="{{ old('role') }}" placeholder="Guru Pembimbing"
+                            class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-800 focus:bg-white focus:outline-none focus:border-emerald-500 transition text-sm">
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-3">
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-2">Asal</label>
+                            <select name="origin" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-3 text-slate-800 focus:bg-white focus:outline-none focus:border-emerald-500 transition text-sm">
+                                <option value="guru" {{ old('origin') === 'guru' ? 'selected' : '' }}>Guru</option>
+                                <option value="teman" {{ old('origin') === 'teman' ? 'selected' : '' }}>Teman</option>
+                                <option value="pengguna" {{ old('origin', 'pengguna') === 'pengguna' ? 'selected' : '' }}>Pengguna</option>
+                                <option value="plk" {{ old('origin') === 'plk' ? 'selected' : '' }}>Tempat PLK</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-2">Rating</label>
+                            <select name="rating" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-3 text-slate-800 focus:bg-white focus:outline-none focus:border-emerald-500 transition text-sm">
+                                @for($star = 5; $star >= 1; $star--)
+                                    <option value="{{ $star }}" {{ (int) old('rating', 5) === $star ? 'selected' : '' }}>{{ $star }} ★</option>
+                                @endfor
+                            </select>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-semibold text-slate-700 mb-2">Pesan</label>
+                        <textarea name="message" rows="4" required placeholder="Tulis pengalaman Anda..."
+                            class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-800 focus:bg-white focus:outline-none focus:border-emerald-500 transition text-sm resize-none">{{ old('message') }}</textarea>
+                    </div>
+
+                    <button type="submit" class="w-full bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white px-5 py-3 rounded-xl font-bold text-sm transition shadow-md shadow-emerald-600/20">
+                        Kirim Testimoni
+                    </button>
+                </form>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
 <!-- Call to Action Banner -->
 <section class="py-16 px-4 sm:px-6">
     <div class="max-w-5xl mx-auto rounded-3xl bg-gradient-to-r from-emerald-600 via-teal-600 to-emerald-700 p-8 sm:p-12 text-white shadow-xl shadow-emerald-600/20 relative overflow-hidden text-center sm:text-left flex flex-col sm:flex-row items-center justify-between gap-8">

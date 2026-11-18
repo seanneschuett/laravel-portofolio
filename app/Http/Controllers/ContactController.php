@@ -10,12 +10,14 @@ class ContactController extends Controller
     public function index()
     {
         $messages = Contact::latest()->get();
+
         return view('admin.messages', compact('messages'));
     }
 
     public function destroy($id)
     {
         Contact::findOrFail($id)->delete();
+
         return back()->with('success', 'Message deleted successfully!');
     }
 
