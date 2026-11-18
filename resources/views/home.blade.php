@@ -24,34 +24,34 @@
 @endphp
 
 <!-- Hero Section -->
-<section class="relative overflow-hidden px-4 pt-10 pb-20 sm:px-6 lg:pt-14 lg:pb-24">
+<section class="relative overflow-hidden px-3 pt-8 pb-14 sm:px-5 lg:pt-10 lg:pb-16">
 
     <div class="pointer-events-none absolute inset-0" aria-hidden="true">
-        <div class="ambient-blob absolute -right-24 -top-28 h-[32rem] w-[32rem] rounded-full bg-emerald-200/40 blur-3xl"></div>
-        <div class="ambient-blob ambient-blob-slow absolute -bottom-32 -left-24 h-80 w-80 rounded-full bg-teal-200/30 blur-3xl"></div>
-        <div class="absolute inset-x-0 top-0 h-[34rem] opacity-30" style="background-image: radial-gradient(circle at 1px 1px, #10b981 1px, transparent 0); background-size: 28px 28px; -webkit-mask-image: linear-gradient(to bottom, black 5%, transparent 80%); mask-image: linear-gradient(to bottom, black 5%, transparent 80%);"></div>
+        <div class="ambient-blob absolute -right-20 -top-24 h-[26rem] w-[26rem] rounded-full bg-emerald-200/40 blur-3xl"></div>
+        <div class="ambient-blob ambient-blob-slow absolute -bottom-24 -left-20 h-64 w-64 rounded-full bg-teal-200/30 blur-3xl"></div>
+        <div class="absolute inset-x-0 top-0 h-[28rem] opacity-30" style="background-image: radial-gradient(circle at 1px 1px, #10b981 1px, transparent 0); background-size: 24px 24px; -webkit-mask-image: linear-gradient(to bottom, black 5%, transparent 80%); mask-image: linear-gradient(to bottom, black 5%, transparent 80%);"></div>
     </div>
 
-    <div class="relative z-10 mx-auto grid max-w-7xl items-center gap-14 lg:grid-cols-12 lg:gap-10">
+    <div class="relative z-10 mx-auto grid max-w-7xl items-center gap-8 lg:grid-cols-12 lg:gap-8">
 
         <div class="text-center lg:col-span-7 lg:text-left">
 
-            <div class="inline-flex items-center gap-2 rounded-full border border-emerald-200/80 bg-emerald-50 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-emerald-700 shadow-sm">
+            <div class="inline-flex items-center gap-2 rounded-full border border-emerald-200/80 bg-emerald-50 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-wider text-emerald-700 shadow-sm">
                 <span class="h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span>
                 {{ $displayMajor }}
             </div>
 
-            <h1 class="mt-6 text-[2.75rem] font-extrabold leading-[1.06] tracking-tight text-slate-900 sm:text-6xl lg:text-[4.5rem]">
+            <h1 class="mt-5 text-[2.25rem] font-extrabold leading-[1.08] tracking-tight text-slate-900 sm:text-5xl lg:text-[3.75rem]">
                 Halo, saya
                 <span class="mt-1 block gradient-emerald-text animated-gradient-text">{{ $displayName }}</span>
             </h1>
 
-            <p class="mx-auto mt-6 max-w-xl text-base leading-relaxed text-slate-600 sm:text-lg lg:mx-0">
+            <p class="mx-auto mt-5 max-w-xl text-sm leading-relaxed text-slate-600 sm:text-base lg:mx-0">
                 {{ $displayBio }}
             </p>
 
             @if($displayClass !== '')
-                <div class="mt-5 inline-flex items-center gap-2 rounded-xl border border-slate-200/80 bg-white px-3.5 py-2 text-sm font-semibold text-slate-700 shadow-sm">
+                <div class="mt-4 inline-flex items-center gap-2 rounded-xl border border-slate-200/80 bg-white px-3 py-1.5 text-xs font-semibold text-slate-700 shadow-sm">
                     <svg class="h-4 w-4 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5"/>
                     </svg>
@@ -59,15 +59,15 @@
                 </div>
             @endif
 
-            <div class="mt-8 flex flex-wrap items-center justify-center gap-3 sm:gap-4 lg:justify-start">
+            <div class="mt-6 flex flex-wrap items-center justify-center gap-2 sm:gap-3 lg:justify-start">
                 <a href="#projects"
-                   class="flex items-center gap-2 rounded-full bg-gradient-to-r from-emerald-600 to-teal-600 px-7 py-3.5 font-semibold text-white shadow-lg shadow-emerald-600/25 transition duration-300 hover:-translate-y-0.5 hover:from-emerald-500 hover:to-teal-500 hover:shadow-xl hover:shadow-emerald-600/35">
+                   class="flex items-center gap-2 rounded-full bg-gradient-to-r from-emerald-600 to-teal-600 px-5 py-2.5 font-semibold text-white shadow-lg shadow-emerald-600/25 transition duration-300 hover:-translate-y-0.5 hover:from-emerald-500 hover:to-teal-500 hover:shadow-xl hover:shadow-emerald-600/35">
                     <span>Lihat Portofolio</span>
                     <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
                 </a>
 
                 <a href="{{ $cvLink }}"
-                   class="rounded-full border border-slate-200 bg-white px-7 py-3.5 font-semibold text-slate-700 shadow-sm transition duration-300 hover:-translate-y-0.5 hover:border-emerald-300 hover:bg-emerald-50/50 hover:text-emerald-700">
+                   class="rounded-full border border-slate-200 bg-white px-5 py-2.5 font-semibold text-slate-700 shadow-sm transition duration-300 hover:-translate-y-0.5 hover:border-emerald-300 hover:bg-emerald-50/50 hover:text-emerald-700">
                     Lihat CV
                 </a>
 
@@ -78,7 +78,7 @@
                 </a>
             </div>
 
-            <div class="mt-9 flex flex-col items-center gap-5 border-t border-slate-200/60 pt-6 sm:flex-row sm:items-center sm:justify-center lg:justify-start">
+            <div class="mt-7 flex flex-col items-center gap-4 border-t border-slate-200/60 pt-5 sm:flex-row sm:items-center sm:justify-center lg:justify-start">
                 <div class="flex items-center gap-3">
                     <span class="text-[10px] font-semibold uppercase tracking-[0.18em] text-slate-400">Terhubung</span>
                     <div class="flex items-center gap-2">
@@ -87,7 +87,7 @@
                            rel="noopener"
                            title="GitHub"
                            aria-label="GitHub"
-                           class="flex h-9 w-9 items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-600 shadow-sm transition duration-300 hover:-translate-y-0.5 hover:border-emerald-600 hover:bg-emerald-600 hover:text-white">
+                           class="flex h-8 w-8 items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-600 shadow-sm transition duration-300 hover:-translate-y-0.5 hover:border-emerald-600 hover:bg-emerald-600 hover:text-white">
                             <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.55 0-.27-.01-1.17-.02-2.12-3.2.7-3.87-1.36-3.87-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.23-1.28-5.23-5.68 0-1.25.45-2.28 1.19-3.08-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18.92-.26 1.9-.39 2.88-.39.98 0 1.96.13 2.88.39 2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.8 1.19 1.83 1.19 3.08 0 4.41-2.69 5.38-5.25 5.67.41.35.78 1.05.78 2.12 0 1.53-.01 2.76-.01 3.14 0 .3.21.66.8.55A11.51 11.51 0 0023.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>
                         </a>
 
@@ -96,7 +96,7 @@
                            rel="noopener"
                            title="LinkedIn"
                            aria-label="LinkedIn"
-                           class="flex h-9 w-9 items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-600 shadow-sm transition duration-300 hover:-translate-y-0.5 hover:border-emerald-600 hover:bg-emerald-600 hover:text-white">
+                           class="flex h-8 w-8 items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-600 shadow-sm transition duration-300 hover:-translate-y-0.5 hover:border-emerald-600 hover:bg-emerald-600 hover:text-white">
                             <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V23h-4V8zm7.5 0h3.83v2.05h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V23h-4v-7.9c0-1.88-.03-4.3-2.62-4.3-2.62 0-3.02 2.05-3.02 4.17V23h-4V8z"/></svg>
                         </a>
 
@@ -105,7 +105,7 @@
                            rel="noopener"
                            title="Gmail"
                            aria-label="Gmail"
-                           class="flex h-9 w-9 items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-600 shadow-sm transition duration-300 hover:-translate-y-0.5 hover:border-emerald-600 hover:bg-emerald-600 hover:text-white">
+                           class="flex h-8 w-8 items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-600 shadow-sm transition duration-300 hover:-translate-y-0.5 hover:border-emerald-600 hover:bg-emerald-600 hover:text-white">
                             <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M2.25 6.75A2.25 2.25 0 014.5 4.5h15a2.25 2.25 0 012.25 2.25v10.5A2.25 2.25 0 0119.5 19.5h-15a2.25 2.25 0 01-2.25-2.25V6.75zm1.5 0v.243l8.25 5.5 8.25-5.5V6.75a.75.75 0 00-.75-.75h-15a.75.75 0 00-.75.75zm16.5 2.07l-7.72 5.147a1.5 1.5 0 01-1.66 0L3.75 8.82v8.43c0 .414.336.75.75.75h15a.75.75 0 00.75-.75V8.82z"/></svg>
                         </a>
 
@@ -114,7 +114,7 @@
                            rel="noopener"
                            title="Instagram"
                            aria-label="Instagram"
-                           class="flex h-9 w-9 items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-600 shadow-sm transition duration-300 hover:-translate-y-0.5 hover:border-emerald-600 hover:bg-emerald-600 hover:text-white">
+                           class="flex h-8 w-8 items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-600 shadow-sm transition duration-300 hover:-translate-y-0.5 hover:border-emerald-600 hover:bg-emerald-600 hover:text-white">
                             <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
                         </a>
                     </div>
@@ -125,7 +125,7 @@
                 <div class="flex items-center justify-center gap-6">
                     @foreach($heroStats as $stat)
                         <div class="text-left">
-                            <p class="text-xl font-extrabold text-slate-900">{{ $stat['value'] }}</p>
+                            <p class="text-lg font-extrabold text-slate-900">{{ $stat['value'] }}</p>
                             <p class="text-[10px] font-semibold uppercase tracking-wider text-slate-400">{{ $stat['label'] }}</p>
                         </div>
                     @endforeach
@@ -135,15 +135,15 @@
         </div>
 
         <div class="relative flex justify-center lg:col-span-5 lg:justify-end">
-            <div class="hero-float relative w-[290px] sm:w-[350px] lg:w-[390px]">
+            <div class="hero-float relative w-[240px] sm:w-[290px] lg:w-[320px]">
 
                 <div class="absolute -inset-8 rounded-full bg-emerald-400/20 blur-3xl"></div>
                 <div class="absolute -right-4 top-10 h-24 w-24 rounded-full border border-emerald-300/60"></div>
                 <div class="absolute -left-6 bottom-16 h-14 w-14 rotate-12 rounded-2xl bg-teal-200/30"></div>
 
-                <div class="relative -rotate-1 rounded-[6rem_6rem_2.5rem_2.5rem] bg-gradient-to-br from-emerald-600 via-teal-500 to-emerald-400 p-[3px] shadow-2xl shadow-emerald-900/20 transition duration-500 hover:rotate-0">
-                    <div class="rounded-[5.8rem_5.8rem_2.35rem_2.35rem] bg-white p-2.5">
-                        <div class="overflow-hidden rounded-[5.5rem_5.5rem_2.1rem_2.1rem]">
+                <div class="relative -rotate-1 rounded-[5rem_5rem_2rem_2rem] bg-gradient-to-br from-emerald-600 via-teal-500 to-emerald-400 p-[3px] shadow-2xl shadow-emerald-900/20 transition duration-500 hover:rotate-0">
+                    <div class="rounded-[4.85rem_4.85rem_1.85rem_1.85rem] bg-white p-2.5">
+                        <div class="overflow-hidden rounded-[4.6rem_4.6rem_1.7rem_1.7rem]">
                             <img src="{{ $heroPhoto }}"
                                  alt="{{ $displayName }}"
                                  class="aspect-[4/5] w-full object-cover object-top transition duration-700 hover:scale-105">
@@ -151,23 +151,23 @@
                     </div>
                 </div>
 
-                <div class="absolute -right-3 top-24 hidden items-center gap-2.5 rounded-2xl border border-slate-200/80 bg-white px-3.5 py-3 shadow-xl shadow-emerald-900/10 sm:flex">
-                    <span class="flex h-9 w-9 items-center justify-center rounded-xl bg-emerald-100/80 text-emerald-700">
+                <div class="absolute -right-2 top-20 hidden items-center gap-2 rounded-xl border border-slate-200/80 bg-white px-3 py-2.5 shadow-xl shadow-emerald-900/10 sm:flex">
+                    <span class="flex h-8 w-8 items-center justify-center rounded-xl bg-emerald-100/80 text-emerald-700">
                         <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"/></svg>
                     </span>
                     <span>
                         <span class="block text-[9px] font-semibold uppercase tracking-[0.16em] text-slate-400">Fokus</span>
-                        <span class="block text-xs font-bold text-slate-900">Web Development</span>
+                        <span class="block text-[11px] font-bold text-slate-900">Web Development</span>
                     </span>
                 </div>
 
-                <div class="absolute -left-4 bottom-20 hidden items-center gap-2.5 rounded-2xl border border-slate-200/80 bg-white px-3.5 py-3 shadow-xl shadow-emerald-900/10 sm:flex">
-                    <span class="flex h-9 w-9 items-center justify-center rounded-xl bg-teal-100/80 text-teal-700">
+                <div class="absolute -left-3 bottom-16 hidden items-center gap-2 rounded-xl border border-slate-200/80 bg-white px-3 py-2.5 shadow-xl shadow-emerald-900/10 sm:flex">
+                    <span class="flex h-8 w-8 items-center justify-center rounded-xl bg-teal-100/80 text-teal-700">
                         <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5"/></svg>
                     </span>
                     <span>
                         <span class="block text-[9px] font-semibold uppercase tracking-[0.16em] text-slate-400">Pendidikan</span>
-                        <span class="block max-w-[9rem] truncate text-xs font-bold text-slate-900">{{ $profile->school ?? 'SMKN 2 Banjarmasin' }}</span>
+                        <span class="block max-w-[8rem] truncate text-[11px] font-bold text-slate-900">{{ $profile->school ?? 'SMKN 2 Banjarmasin' }}</span>
                     </span>
                 </div>
 
@@ -179,43 +179,43 @@
 </section>
 
 <!-- About Section -->
-<section id="about" class="scroll-mt-28 py-20 px-4 sm:px-6 relative overflow-hidden bg-white/60 border-y border-slate-200/60">
+<section id="about" class="scroll-mt-28 py-14 sm:py-16 px-3 sm:px-5 relative overflow-hidden bg-white/60 border-y border-slate-200/60">
 
     <div class="max-w-6xl mx-auto relative z-10">
 
         <!-- Section Title -->
-        <div class="text-center mb-16" data-reveal>
+        <div class="text-center mb-12" data-reveal>
             <span class="px-4 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-semibold uppercase tracking-wider inline-block mb-3">
                 Tentang Saya
             </span>
-            <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900">
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">
                 Mengenal Lebih Dekat <span class="gradient-emerald-text">{{ $profile->nickname ?? 'Sara' }}</span>
             </h2>
         </div>
 
         <!-- Grid Content -->
-        <div class="grid md:grid-cols-12 gap-10 items-center">
+        <div class="grid md:grid-cols-12 gap-8 items-center">
 
             <!-- Left: Profile Photo -->
             <div class="md:col-span-5 flex justify-center" data-reveal>
-                <div class="relative w-full max-w-[330px]">
-                    <div class="absolute -inset-5 rotate-3 rounded-[7rem_7rem_3rem_3rem] bg-emerald-200/40 blur-sm"></div>
-                    <div class="absolute -right-6 -top-4 h-20 w-20 rounded-full border border-teal-300/60"></div>
-                    <div class="relative z-10 rounded-[6.5rem_6.5rem_2.5rem_2.5rem] bg-gradient-to-br from-emerald-600 via-teal-500 to-emerald-400 p-[3px] shadow-xl">
+                <div class="relative w-full max-w-[270px]">
+                    <div class="absolute -inset-4 rotate-3 rounded-[5.75rem_5.75rem_2.5rem_2.5rem] bg-emerald-200/40 blur-sm"></div>
+                    <div class="absolute -right-5 -top-3 h-16 w-16 rounded-full border border-teal-300/60"></div>
+                    <div class="relative z-10 rounded-[5.25rem_5.25rem_2rem_2rem] bg-gradient-to-br from-emerald-600 via-teal-500 to-emerald-400 p-[3px] shadow-xl">
                         <img src="{{ $profile->about_photo ?? asset('images/paspoto2.jpeg') }}"
                              alt="About {{ $displayName }}"
-                             class="h-[410px] w-full rounded-[6.2rem_6.2rem_2.25rem_2.25rem] border-[6px] border-white object-cover object-top">
+                             class="h-[330px] w-full rounded-[5rem_5rem_1.85rem_1.85rem] border-[5px] border-white object-cover object-top">
                     </div>
-                    <div class="absolute -bottom-5 left-1/2 z-20 flex -translate-x-1/2 items-center gap-2 rounded-full border border-slate-200/80 bg-white px-4 py-2.5 shadow-lg shadow-emerald-900/10">
+                    <div class="absolute -bottom-4 left-1/2 z-20 flex -translate-x-1/2 items-center gap-1.5 rounded-full border border-slate-200/80 bg-white px-3 py-2 shadow-lg shadow-emerald-900/10">
                         <svg class="h-4 w-4 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"/></svg>
-                        <span class="whitespace-nowrap text-xs font-bold text-slate-700">Laravel & Tailwind</span>
+                        <span class="whitespace-nowrap text-[11px] font-bold text-slate-700">Laravel & Tailwind</span>
                     </div>
                 </div>
             </div>
 
             <!-- Right: Details -->
-            <div class="md:col-span-7 space-y-6" data-reveal style="--reveal-delay: 100ms">
-                <h3 class="text-2xl font-bold text-slate-900">
+            <div class="md:col-span-7 space-y-5" data-reveal style="--reveal-delay: 100ms">
+                <h3 class="text-xl font-bold text-slate-900">
                     Pengembang Web & Desainer Antarmuka
                     <svg class="inline-block w-6 h-6 ml-1 -mt-1 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"/>
@@ -233,7 +233,7 @@
                 <!-- Skill Cards -->
                 <div class="grid sm:grid-cols-2 gap-4 pt-4">
 
-                    <div class="p-5 rounded-2xl bg-white border border-slate-200/80 shadow-sm hover:border-emerald-300 transition duration-300">
+                    <div class="p-4 rounded-2xl bg-white border border-slate-200/80 shadow-sm hover:border-emerald-300 transition duration-300">
                         <div class="w-10 h-10 rounded-xl bg-emerald-100/80 text-emerald-700 flex items-center justify-center mb-3">
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.53 16.122a3 3 0 00-5.78 1.128 2.25 2.25 0 01-2.4 2.245 4.5 4.5 0 008.4-2.245c0-.399-.078-.78-.22-1.128zm0 0a15.998 15.998 0 003.388-1.62m-5.043-.025a15.994 15.994 0 011.622-3.395m3.42 3.42a15.995 15.995 0 004.764-4.648l3.876-5.814a1.151 1.151 0 00-1.597-1.597L14.146 6.32a15.996 15.996 0 00-4.649 4.763m3.42 3.42a6.776 6.776 0 00-3.42-3.42"/>
@@ -243,7 +243,7 @@
                         <p class="text-xs text-slate-500 leading-relaxed">HTML, CSS, JavaScript, Tailwind CSS, Responsive Design</p>
                     </div>
 
-                    <div class="p-5 rounded-2xl bg-white border border-slate-200/80 shadow-sm hover:border-emerald-300 transition duration-300">
+                    <div class="p-4 rounded-2xl bg-white border border-slate-200/80 shadow-sm hover:border-emerald-300 transition duration-300">
                         <div class="w-10 h-10 rounded-xl bg-teal-100/80 text-teal-700 flex items-center justify-center mb-3">
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375m16.5 5.625c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125"/>
@@ -271,7 +271,7 @@
     $softSkills = $skills->where('category', 'soft')->count();
     $avgSkill = (int) round($skills->avg('percentage') ?? 0);
 @endphp
-<section id="skills" class="scroll-mt-28 py-24 px-4 sm:px-6 relative overflow-hidden">
+<section id="skills" class="scroll-mt-28 py-16 sm:py-20 px-3 sm:px-5 relative overflow-hidden">
 
     <div class="pointer-events-none absolute inset-0" aria-hidden="true">
         <div class="absolute -right-20 top-16 h-72 w-72 rounded-full bg-emerald-200/40 blur-3xl"></div>
@@ -280,11 +280,11 @@
 
     <div class="max-w-6xl mx-auto relative z-10">
 
-        <div class="text-center mb-10" data-reveal>
+        <div class="text-center mb-8" data-reveal>
             <span class="px-4 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-semibold uppercase tracking-wider inline-block mb-3">
                 Keahlian
             </span>
-            <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900">
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">
                 Hard Skill & <span class="gradient-emerald-text">Soft Skill</span>
             </h2>
             <p class="mt-4 mx-auto max-w-xl text-sm text-slate-600 sm:text-base">
@@ -292,19 +292,19 @@
             </p>
         </div>
 
-        <div class="mx-auto mb-9 flex w-fit max-w-full flex-wrap items-center justify-center gap-1.5 rounded-2xl border border-slate-200/80 bg-white p-1.5 shadow-sm" role="group" aria-label="Filter keahlian">
+        <div class="mx-auto mb-6 flex w-fit max-w-full flex-wrap items-center justify-center gap-1.5 rounded-xl border border-slate-200/80 bg-white p-1 shadow-sm" role="group" aria-label="Filter keahlian">
             <button type="button" data-skill-filter="all" aria-pressed="true"
-                    class="skill-filter is-active flex items-center gap-2 rounded-xl px-4 py-2 text-xs font-semibold text-slate-600 transition hover:text-emerald-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500/60">
+                    class="skill-filter is-active flex items-center gap-2 rounded-lg px-3 py-1.5 text-[11px] font-semibold text-slate-600 transition hover:text-emerald-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500/60">
                 Semua
                 <span class="rounded-full bg-slate-100 px-1.5 py-0.5 text-[10px] font-bold text-slate-500">{{ $totalSkills }}</span>
             </button>
             <button type="button" data-skill-filter="hard" aria-pressed="false"
-                    class="skill-filter flex items-center gap-2 rounded-xl px-4 py-2 text-xs font-semibold text-slate-600 transition hover:text-emerald-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500/60">
+                    class="skill-filter flex items-center gap-2 rounded-lg px-3 py-1.5 text-[11px] font-semibold text-slate-600 transition hover:text-emerald-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500/60">
                 Hard Skill
                 <span class="rounded-full bg-slate-100 px-1.5 py-0.5 text-[10px] font-bold text-slate-500">{{ $hardSkills }}</span>
             </button>
             <button type="button" data-skill-filter="soft" aria-pressed="false"
-                    class="skill-filter flex items-center gap-2 rounded-xl px-4 py-2 text-xs font-semibold text-slate-600 transition hover:text-emerald-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500/60">
+                    class="skill-filter flex items-center gap-2 rounded-lg px-3 py-1.5 text-[11px] font-semibold text-slate-600 transition hover:text-emerald-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500/60">
                 Soft Skill
                 <span class="rounded-full bg-slate-100 px-1.5 py-0.5 text-[10px] font-bold text-slate-500">{{ $softSkills }}</span>
             </button>
@@ -323,7 +323,7 @@
                     $glowClass = $isSoft ? 'bg-teal-100/80' : 'bg-emerald-100/80';
                 @endphp
                 <article data-skill-card data-category="{{ $skill->category }}" class="skill-card group w-full sm:w-[calc(50%-0.625rem)] lg:w-[calc(33.333%-0.834rem)]" data-reveal style="--reveal-delay: {{ min($loop->index, 5) * 70 }}ms">
-                    <div class="relative flex h-full flex-col overflow-hidden rounded-3xl border border-slate-200/80 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1.5 hover:border-emerald-300 hover:shadow-xl hover:shadow-emerald-600/10">
+                    <div class="relative flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200/80 bg-white p-5 shadow-sm transition duration-300 hover:-translate-y-1.5 hover:border-emerald-300 hover:shadow-xl hover:shadow-emerald-600/10">
                         <div class="pointer-events-none absolute -right-10 -top-10 h-28 w-28 rounded-full {{ $glowClass }} blur-2xl transition duration-500 group-hover:scale-125"></div>
 
                         <div class="relative flex items-center justify-between gap-3">
@@ -339,9 +339,9 @@
                             </span>
                         </div>
 
-                        <div class="relative mt-6 flex items-center justify-between gap-4">
+                        <div class="relative mt-5 flex items-center justify-between gap-3">
                             <div class="min-w-0">
-                                <h3 class="text-xl font-extrabold leading-tight text-slate-900 break-words">{{ $skill->name }}</h3>
+                                <h3 class="text-lg font-extrabold leading-tight text-slate-900 break-words">{{ $skill->name }}</h3>
                                 <p class="mt-1 text-xs text-slate-500">Tingkat penguasaan</p>
                                 <span class="mt-4 inline-flex items-center gap-1.5 rounded-full border border-slate-200/80 bg-slate-50 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-slate-600">
                                     <span class="h-1.5 w-1.5 rounded-full {{ $isSoft ? 'bg-teal-500' : 'bg-emerald-500' }}"></span>
@@ -349,7 +349,7 @@
                                 </span>
                             </div>
 
-                            <div class="relative h-24 w-24 shrink-0">
+                            <div class="relative h-20 w-20 shrink-0">
                                 <svg class="h-full w-full -rotate-90" viewBox="0 0 120 120" aria-hidden="true">
                                     <circle cx="60" cy="60" r="52" fill="none" stroke="currentColor" stroke-width="8" class="text-slate-100"></circle>
                                     <circle cx="60" cy="60" r="52" fill="none" stroke="currentColor" stroke-width="8" stroke-linecap="round"
@@ -406,16 +406,16 @@
 @endif
 
 <!-- Projects Carousel Section -->
-<section id="projects" class="scroll-mt-28 py-24 px-4 sm:px-6 relative">
+<section id="projects" class="scroll-mt-28 py-16 sm:py-20 px-3 sm:px-5 relative">
 
     <div class="max-w-7xl mx-auto relative z-10">
 
         <!-- Title -->
-        <div class="text-center mb-16" data-reveal>
+        <div class="text-center mb-12" data-reveal>
             <span class="px-4 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-semibold uppercase tracking-wider inline-block mb-3">
                 Karya & Project
             </span>
-            <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mb-4">
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-4">
                 Project Terbaru <span class="gradient-emerald-text">Sara</span>
             </h2>
             <p class="text-slate-600 max-w-xl mx-auto text-sm sm:text-base">
@@ -518,7 +518,7 @@
 
 <!-- Experience Section -->
 @if($experiences->isNotEmpty())
-<section id="pengalaman" class="scroll-mt-28 py-24 px-4 sm:px-6 relative overflow-hidden bg-white/60 border-y border-slate-200/60">
+<section id="pengalaman" class="scroll-mt-28 py-16 sm:py-20 px-3 sm:px-5 relative overflow-hidden bg-white/60 border-y border-slate-200/60">
 
     <div class="pointer-events-none absolute inset-0" aria-hidden="true">
         <div class="absolute -right-24 top-10 h-72 w-72 rounded-full bg-emerald-200/40 blur-3xl"></div>
@@ -531,7 +531,7 @@
             <span class="px-4 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-semibold uppercase tracking-wider inline-block mb-3">
                 Pengalaman
             </span>
-            <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900">
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">
                 Jejak <span class="gradient-emerald-text">Pengalaman</span>
             </h2>
             <p class="mt-4 mx-auto max-w-xl text-sm text-slate-600 sm:text-base">
@@ -554,7 +554,7 @@
                                 class="experience-toggle flex w-full items-start gap-4 p-5 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-emerald-500/50 sm:p-6"
                                 aria-expanded="{{ $isFirst ? 'true' : 'false' }}"
                                 aria-controls="{{ $panelId }}">
-                            <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-emerald-600 to-teal-500 text-sm font-extrabold text-white shadow-lg shadow-emerald-600/20">
+                            <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-emerald-600 to-teal-500 text-sm font-extrabold text-white shadow-lg shadow-emerald-600/20">
                                 {{ str_pad($loop->iteration, 2, '0', STR_PAD_LEFT) }}
                             </span>
                             <span class="min-w-0 flex-1">
@@ -600,7 +600,7 @@
 
 <!-- Certificates Section -->
 @if($certificates->isNotEmpty())
-<section id="pencapaian" class="scroll-mt-28 py-24 px-4 sm:px-6 relative overflow-hidden">
+<section id="pencapaian" class="scroll-mt-28 py-16 sm:py-20 px-3 sm:px-5 relative overflow-hidden">
 
     <div class="pointer-events-none absolute inset-0" aria-hidden="true">
         <div class="absolute -right-24 top-24 h-72 w-72 rounded-full bg-teal-200/30 blur-3xl"></div>
@@ -614,7 +614,7 @@
                 <span class="px-4 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-semibold uppercase tracking-wider inline-block mb-3">
                     Pencapaian
                 </span>
-                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900">
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">
                     Sertifikat & <span class="gradient-emerald-text">Prestasi</span>
                 </h2>
                 <p class="mt-4 max-w-xl text-sm text-slate-600 sm:text-base">
@@ -680,7 +680,7 @@
 <div id="certificateModal" class="certificate-modal fixed inset-0 z-[60] flex items-center justify-center p-4 sm:p-6" role="dialog" aria-modal="true" aria-labelledby="certificateModalTitle" aria-hidden="true">
     <div class="absolute inset-0 bg-slate-950/70 backdrop-blur-sm" data-certificate-close></div>
     <div class="certificate-modal-panel relative z-10 w-full max-w-3xl overflow-hidden rounded-3xl border border-white/10 bg-white shadow-2xl">
-        <button type="button" id="certificateModalClose" class="absolute right-4 top-4 z-20 flex h-9 w-9 items-center justify-center rounded-full bg-slate-950/60 text-white backdrop-blur transition hover:bg-slate-950 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70" aria-label="Tutup" data-certificate-close>
+        <button type="button" id="certificateModalClose" class="absolute right-4 top-4 z-20 flex h-8 w-8 items-center justify-center rounded-full bg-slate-950/60 text-white backdrop-blur transition hover:bg-slate-950 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70" aria-label="Tutup" data-certificate-close>
             <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
         </button>
         <div class="grid sm:grid-cols-2">
@@ -706,7 +706,7 @@
 @endif
 
 <!-- Testimonials Section -->
-<section id="testimoni" class="scroll-mt-24 py-24 px-4 sm:px-6 relative overflow-hidden bg-white/60 border-y border-slate-200/60">
+<section id="testimoni" class="scroll-mt-24 py-16 sm:py-20 px-3 sm:px-5 relative overflow-hidden bg-white/60 border-y border-slate-200/60">
 
     <div class="pointer-events-none absolute inset-0" aria-hidden="true">
         <div class="absolute -right-28 top-10 h-80 w-80 rounded-full bg-emerald-200/35 blur-3xl"></div>
@@ -752,7 +752,7 @@
             <span class="px-4 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-semibold uppercase tracking-wider inline-block mb-3">
                 Testimoni
             </span>
-            <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mb-4">
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-4">
                 Kata Mereka Tentang <span class="gradient-emerald-text">Sara</span>
             </h2>
             <p class="text-slate-600 max-w-xl mx-auto text-sm sm:text-base">
@@ -823,10 +823,10 @@
                                     <div class="flex items-start gap-3">
                                         @if($testimonial->photo)
                                             <div class="shrink-0 rounded-full bg-gradient-to-br from-emerald-500 to-teal-400 p-[2px]">
-                                                <img src="{{ $testimonial->photo }}" alt="{{ $testimonial->name }}" class="h-11 w-11 rounded-full object-cover ring-2 ring-white">
+                                                <img src="{{ $testimonial->photo }}" alt="{{ $testimonial->name }}" class="h-10 w-10 rounded-full object-cover ring-2 ring-white">
                                             </div>
                                         @else
-                                            <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-emerald-600 to-teal-500 text-sm font-extrabold text-white shadow-md shadow-emerald-600/20">{{ $cardInitial }}</div>
+                                            <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-emerald-600 to-teal-500 text-sm font-extrabold text-white shadow-md shadow-emerald-600/20">{{ $cardInitial }}</div>
                                         @endif
                                         <div class="min-w-0 flex-1">
                                             <h3 class="truncate text-sm font-bold text-slate-900">{{ $testimonial->name }}</h3>
@@ -893,7 +893,7 @@
                     <div class="h-1.5 bg-gradient-to-r from-emerald-500 via-teal-400 to-emerald-300"></div>
                     <div class="p-6 sm:p-7">
                         <div class="flex items-start gap-3">
-                            <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-emerald-600 to-teal-500 text-white shadow-lg shadow-emerald-600/20">
+                            <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-emerald-600 to-teal-500 text-white shadow-lg shadow-emerald-600/20">
                                 <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M7.5 8.25h9m-9 3.75h6M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                             </span>
                             <div>
@@ -989,7 +989,7 @@
                                     </span>
                                 </div>
                                 <div class="mt-3 flex items-center gap-2.5">
-                                    <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-emerald-600 to-teal-500 text-xs font-extrabold text-white" data-preview-initial>{{ $previewName !== '' ? strtoupper(substr($previewName, 0, 1)) : '?' }}</span>
+                                    <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-emerald-600 to-teal-500 text-xs font-extrabold text-white" data-preview-initial>{{ $previewName !== '' ? strtoupper(substr($previewName, 0, 1)) : '?' }}</span>
                                     <div class="min-w-0">
                                         <p class="truncate text-xs font-bold text-slate-900" data-preview-name>{{ $previewName !== '' ? $previewName : 'Nama Anda' }}</p>
                                         <p class="truncate text-[10px] text-slate-500"><span data-preview-role>{{ $previewRole !== '' ? $previewRole : 'Peran Anda' }}</span> · <span data-preview-origin>{{ $originLabels[$selectedOrigin] ?? 'Pengguna' }}</span></p>
@@ -1023,15 +1023,15 @@
 
 <!-- Latest Blog Section -->
 @if($posts->isNotEmpty())
-<section id="blog" class="py-24 px-4 sm:px-6 relative">
+<section id="blog" class="py-16 sm:py-20 px-3 sm:px-5 relative">
 
     <div class="max-w-7xl mx-auto relative z-10">
 
-        <div class="text-center mb-16" data-reveal>
+        <div class="text-center mb-12" data-reveal>
             <span class="px-4 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-semibold uppercase tracking-wider inline-block mb-3">
                 Blog
             </span>
-            <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mb-4">
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-4">
                 Catatan <span class="gradient-emerald-text">Coding</span>
             </h2>
             <p class="text-slate-600 max-w-xl mx-auto text-sm sm:text-base">
@@ -1075,7 +1075,7 @@
 @endif
 
 <!-- Call to Action Banner -->
-<section class="py-16 px-4 sm:px-6">
+<section class="py-16 px-3 sm:px-5">
     <div class="max-w-5xl mx-auto rounded-3xl bg-gradient-to-r from-emerald-600 via-teal-600 to-emerald-700 p-8 sm:p-12 text-white shadow-xl shadow-emerald-600/20 relative overflow-hidden text-center sm:text-left flex flex-col sm:flex-row items-center justify-between gap-8" data-reveal>
         
         <!-- Ambient Shapes -->
