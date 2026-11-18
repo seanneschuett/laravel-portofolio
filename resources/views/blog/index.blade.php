@@ -38,7 +38,10 @@
                         <p class="text-slate-600 text-sm leading-relaxed flex-1 line-clamp-3">
                             {{ \Illuminate\Support\Str::limit($post->excerpt ?? strip_tags($post->content), 140) }}
                         </p>
-                        <span class="inline-flex items-center gap-2 text-sm font-semibold text-emerald-600 mt-4">Baca artikel <span>→</span></span>
+                        <span class="inline-flex items-center gap-2 text-sm font-semibold text-emerald-600 mt-4">
+                            Baca artikel
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+                        </span>
                     </div>
                 </a>
                 @endforeach

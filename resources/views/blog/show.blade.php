@@ -8,7 +8,8 @@
     <div class="max-w-3xl mx-auto relative z-10">
 
         <a href="/blog" class="inline-flex items-center gap-2 text-sm font-semibold text-emerald-600 hover:text-emerald-700 mb-8">
-            <span>←</span> Kembali ke Blog
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"/></svg>
+            Kembali ke Blog
         </a>
 
         <article class="bg-white border border-slate-200/80 rounded-3xl overflow-hidden shadow-sm">
@@ -42,7 +43,7 @@
                         <h3 class="font-bold text-slate-900 text-sm">{{ $latest->title }}</h3>
                         <p class="text-slate-500 text-xs mt-1">{{ ($latest->published_at ?? $latest->created_at)->format('d M Y') }}</p>
                     </div>
-                    <span class="text-emerald-600">→</span>
+                    <svg class="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
                 </a>
                 @endforeach
             </div>

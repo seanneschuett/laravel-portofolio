@@ -17,7 +17,6 @@
             'Sekolah' => $profile->school ?? null,
             'Lokasi' => $profile->location ?? null,
             'Email' => $profile->email ?? null,
-            'Telepon' => $profile->phone ?? null,
         ])->filter();
     @endphp
 

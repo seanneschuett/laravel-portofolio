@@ -8,7 +8,8 @@
     <div class="max-w-6xl mx-auto relative z-10">
 
         <a href="/projects" class="inline-flex items-center gap-2 text-sm font-semibold text-emerald-600 hover:text-emerald-700 mb-8">
-            <span>←</span> Kembali ke Daftar Project
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"/></svg>
+            Kembali ke Daftar Project
         </a>
 
         <!-- Hero -->
@@ -100,7 +101,7 @@
             <ul class="grid sm:grid-cols-2 gap-3">
                 @foreach($project->features as $feature)
                 <li class="flex items-start gap-2 text-sm text-slate-600">
-                    <span class="text-emerald-600 font-bold mt-0.5">✓</span>
+                    <svg class="w-4 h-4 text-emerald-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.5 12.75l6 6 9-13.5"/></svg>
                     <span>{{ $feature }}</span>
                 </li>
                 @endforeach
@@ -137,7 +138,13 @@
                     <div class="bg-white border border-slate-200/80 rounded-2xl p-5 shadow-sm">
                         <div class="flex items-center justify-between gap-3 mb-2">
                             <h3 class="font-bold text-slate-900 text-sm">{{ $feedback->name }}</h3>
-                            <span class="text-amber-500 text-sm">{{ str_repeat('★', (int) $feedback->rating) }}{{ str_repeat('☆', 5 - (int) $feedback->rating) }}</span>
+                            <span class="flex items-center gap-0.5">
+                                @for($i = 1; $i <= 5; $i++)
+                                    <svg class="w-4 h-4 {{ $i <= (int) $feedback->rating ? 'text-amber-500' : 'text-amber-200' }}" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.538 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.783.57-1.838-.197-1.538-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                                    </svg>
+                                @endfor
+                            </span>
                         </div>
                         <p class="text-slate-600 text-sm leading-relaxed">{{ $feedback->message }}</p>
                     </div>
@@ -177,7 +184,7 @@
                             <label class="block text-sm font-semibold text-slate-700 mb-2">Rating</label>
                             <select name="rating" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-800 focus:bg-white focus:outline-none focus:border-emerald-500 transition text-sm">
                                 @for($star = 5; $star >= 1; $star--)
-                                    <option value="{{ $star }}" {{ (int) old('rating', 5) === $star ? 'selected' : '' }}>{{ $star }} ★</option>
+                                    <option value="{{ $star }}" {{ (int) old('rating', 5) === $star ? 'selected' : '' }}>{{ $star }} / 5</option>
                                 @endfor
                             </select>
                         </div>

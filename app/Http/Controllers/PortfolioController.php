@@ -52,7 +52,6 @@ class PortfolioController extends Controller
     {
         $search = trim((string) $request->query('q', ''));
         $tech = trim((string) $request->query('tech', ''));
-        $category = trim((string) $request->query('category', ''));
 
         $projects = Project::query()
             ->when($search !== '', function ($query) use ($search) {
@@ -65,7 +64,6 @@ class PortfolioController extends Controller
                 });
             })
             ->when($tech !== '', fn ($query) => $query->where('tags', 'like', '%"'.$tech.'"%'))
-            ->when($category !== '', fn ($query) => $query->where('category', $category))
             ->orderBy('sort_order')
             ->orderByDesc('id')
             ->get();
@@ -77,14 +75,7 @@ class PortfolioController extends Controller
             ->sort()
             ->values();
 
-        $categories = Project::whereNotNull('category')
-            ->pluck('category')
-            ->filter()
-            ->unique()
-            ->sort()
-            ->values();
-
-        return view('projects_list', compact('projects', 'technologies', 'categories', 'search', 'tech', 'category'));
+        return view('projects_list', compact('projects', 'technologies', 'search', 'tech'));
     }
 
     public function projectShow(Project $project)

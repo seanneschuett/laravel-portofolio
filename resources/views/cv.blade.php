@@ -9,14 +9,13 @@
     $displayMajor = $profile->major ?? 'Web Developer & UI/UX Designer';
     $profilePhoto = $profile->photo ?? asset('images/paspoto.jpeg');
     $contactItems = collect([
-        'Email' => $profile->email ?? null,
-        'Telepon' => $profile->phone ?? null,
-        'Lokasi' => $profile->location ?? null,
+        'Gmail' => $profile?->email,
     ])->filter();
     $socialItems = collect([
-        'GitHub' => $profile->github ?? null,
-        'Instagram' => $profile->instagram ?? null,
-        'LinkedIn' => $profile->linkedin ?? null,
+        'GitHub' => $profile?->linkFor('github'),
+        'LinkedIn' => $profile?->linkFor('linkedin'),
+        'Gmail' => $profile?->email ? 'mailto:'.$profile->email : null,
+        'Instagram' => $profile?->linkFor('instagram'),
     ])->filter();
 @endphp
 
@@ -148,11 +147,13 @@
             @endif
 
             @if($socialItems->isNotEmpty())
-            <div class="pt-6 border-t border-slate-100 print:hidden">
-                <h2 class="text-sm font-bold uppercase tracking-wider text-slate-500 mb-3">Media Sosial</h2>
+            <div class="pt-6 border-t border-slate-100">
+                <h2 class="text-sm font-bold uppercase tracking-wider text-slate-500 mb-3">Kontak & Media Sosial</h2>
                 <div class="flex flex-wrap gap-3 text-sm">
                     @foreach($socialItems as $label => $url)
-                        <a href="{{ $url }}" target="_blank" class="text-emerald-600 hover:text-emerald-700 font-semibold">{{ $label }}</a>
+                        <a href="{{ $url }}"
+                           @if(!str_starts_with($url, 'mailto:')) target="_blank" rel="noopener" @endif
+                           class="text-emerald-600 hover:text-emerald-700 font-semibold">{{ $label }}</a>
                     @endforeach
                 </div>
             </div>
@@ -167,7 +168,11 @@
     @media print {
         nav, footer, .print\:hidden { display: none !important; }
         main { padding-top: 0 !important; }
-        body { background: #fff !important; }
+        html, body { background: #fff !important; color: #0f172a !important; }
+        html.dark .bg-white, html.dark .bg-slate-50, html.dark .bg-slate-100 { background: #fff !important; }
+        html.dark .text-slate-900, html.dark .text-slate-800, html.dark .text-slate-700 { color: #0f172a !important; }
+        html.dark .text-slate-600, html.dark .text-slate-500 { color: #334155 !important; }
+        html.dark .border-slate-100, html.dark .border-slate-200 { border-color: #e2e8f0 !important; }
     }
 </style>
 

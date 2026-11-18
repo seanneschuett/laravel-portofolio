@@ -26,7 +26,6 @@ class AdminProfileController extends Controller
             'school' => 'nullable|string|max:255',
             'location' => 'nullable|string|max:255',
             'email' => 'nullable|email|max:255',
-            'phone' => 'nullable|string|max:50',
             'bio' => 'nullable|string',
             'about' => 'nullable|string',
             'photo' => 'nullable|string|max:2048',
@@ -38,7 +37,6 @@ class AdminProfileController extends Controller
             'instagram' => 'nullable|string|max:2048',
             'github' => 'nullable|string|max:2048',
             'linkedin' => 'nullable|string|max:2048',
-            'whatsapp' => 'nullable|string|max:2048',
         ]);
 
         $profile->update($data);

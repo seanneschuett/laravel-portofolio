@@ -62,23 +62,8 @@
 
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div>
-                    <label class="block text-sm font-semibold text-slate-700 mb-2">Email</label>
+                    <label class="block text-sm font-semibold text-slate-700 mb-2">Email / Gmail</label>
                     <input type="email" name="email" value="{{ old('email', $profile->email) }}"
-                        class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-800 focus:bg-white focus:outline-none focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10 transition text-sm">
-                </div>
-                <div>
-                    <label class="block text-sm font-semibold text-slate-700 mb-2">Telepon</label>
-                    <input type="text" name="phone" value="{{ old('phone', $profile->phone) }}"
-                        class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-800 focus:bg-white focus:outline-none focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10 transition text-sm">
-                </div>
-                <div>
-                    <label class="block text-sm font-semibold text-slate-700 mb-2">WhatsApp</label>
-                    <input type="text" name="whatsapp" value="{{ old('whatsapp', $profile->whatsapp) }}"
-                        class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-800 focus:bg-white focus:outline-none focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10 transition text-sm">
-                </div>
-                <div>
-                    <label class="block text-sm font-semibold text-slate-700 mb-2">Instagram</label>
-                    <input type="text" name="instagram" value="{{ old('instagram', $profile->instagram) }}"
                         class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-800 focus:bg-white focus:outline-none focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10 transition text-sm">
                 </div>
                 <div>
@@ -89,6 +74,11 @@
                 <div>
                     <label class="block text-sm font-semibold text-slate-700 mb-2">LinkedIn</label>
                     <input type="text" name="linkedin" value="{{ old('linkedin', $profile->linkedin) }}"
+                        class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-800 focus:bg-white focus:outline-none focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10 transition text-sm">
+                </div>
+                <div>
+                    <label class="block text-sm font-semibold text-slate-700 mb-2">Instagram</label>
+                    <input type="text" name="instagram" value="{{ old('instagram', $profile->instagram) }}"
                         class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-800 focus:bg-white focus:outline-none focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10 transition text-sm">
                 </div>
             </div>

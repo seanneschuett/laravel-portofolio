@@ -120,7 +120,8 @@
 
             <div class="mt-6 pt-6 border-t border-slate-100 text-center">
                 <a href="/" class="text-xs font-semibold text-slate-500 hover:text-emerald-600 transition flex items-center justify-center gap-1">
-                    ← Kembali ke Website Utama
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"/></svg>
+                    Kembali ke Website Utama
                 </a>
             </div>
 
